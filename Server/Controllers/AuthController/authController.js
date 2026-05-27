@@ -2,6 +2,11 @@
 const authSchema = require("../../Models/AuthSchema/authSchema.js");
 // bcrypt.js
 const bcrypt = require("bcryptjs");
+// jsonwebtoken
+const jwt = require("jsonwebtoken");
+// dotenv
+const dotenv = require("dotenv").config({ quiet: true });
+
 // register controller
 const RegisterController = async (req, res) => {
   try {
@@ -11,6 +16,12 @@ const RegisterController = async (req, res) => {
       email: req.body.email.toLowerCase(),
       role: req.body.role,
     });
+    if (!name || !email || !password || !role) {
+      return res.status(404).json({
+        status: false,
+        message: "all feilds required",
+      });
+    }
     // email vaildations
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
@@ -75,7 +86,12 @@ const LoginController = async (req, res) => {
   try {
     const { email, password } = req.body;
     console.log("body:", { email: req.body.email });
-
+    if (!email || !password) {
+      return res.status(404).json({
+        status: false,
+        message: "all feilds required",
+      });
+    }
     // email vaildations
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
@@ -105,11 +121,21 @@ const LoginController = async (req, res) => {
       });
     }
     console.log("userdetails:", user);
+    // payload
+    const payload = {
+      id: user._id,
+      name: user.name,
+      email: user.email,
+      role: user.role,
+    };
+    // token
+    const token = jwt.sign(payload, process.env.JWT_TOKEN, { expiresIn: "1d" });
     res.status(200).json({
       message: "login sucessfully",
       details: {
         email: user.email,
       },
+      token: token,
     });
   } catch (error) {
     console.log("error in login:", error.message);

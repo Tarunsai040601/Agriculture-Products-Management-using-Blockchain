@@ -3,14 +3,17 @@ const express = require("express");
 const dotenv = require("dotenv").config({ quiet: true });
 const DataBase = require("./Config/Config.js");
 const authRouter = require("./Routers/AuthRouters/authRouter.js");
+const FarmerRouter = require("./Routers/createFarmerRouter/FarmerRouter.js");
 const app = express();
 
 // built-in middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// router middleware
+// router middleware auth router
 app.use("/api/auth", authRouter);
+// create farmers router
+app.use("/api/create", FarmerRouter);
 // port
 const port = process.env.PORT || 8045;
 
