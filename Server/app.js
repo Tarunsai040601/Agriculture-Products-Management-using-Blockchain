@@ -1,0 +1,23 @@
+// express
+const express = require("express");
+const dotenv = require("dotenv").config({ quiet: true });
+const DataBase = require("./Config/Config.js");
+const authRouter = require("./Routers/AuthRouters/authRouter.js");
+const app = express();
+
+// built-in middleware
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+// router middleware
+app.use("/api/auth", authRouter);
+// port
+const port = process.env.PORT || 8045;
+
+// APP LISTEN
+app.listen(port, () => {
+  console.log(`server is runing on the http://localhost:${port}`);
+});
+
+// database calling
+DataBase;
