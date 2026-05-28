@@ -8,7 +8,8 @@ const fetchDealers = async (req, res) => {
 
     const fetch_all_dealers = await authSchema.find(
       {
-        role: { $in: ["dealer"] }
+        createdBy: req.user.id,
+        role: ["dealer"],
       },
       {
         name: 1,
@@ -85,6 +86,7 @@ const createDealer = async (req, res) => {
       email,
       password: ScertPassword,
       role,
+      createdBy: req.user.id,
     });
     console.log("insertUser:", insertUser);
     res.status(200).json({
@@ -95,6 +97,7 @@ const createDealer = async (req, res) => {
         email: insertUser.email,
         password: insertUser.password,
         role: insertUser.role,
+        
       },
     });
   } catch (error) {

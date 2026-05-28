@@ -10,8 +10,9 @@ const fetchFarmers = async (req, res) => {
   try {
 
     const fetch_all_famers = await authSchema.find(
-      {
-        role: { $in: ["farmer"] }
+       {
+        createdBy: req.user.id,
+        role: ["farmer"],
       },
       {
         name: 1,
@@ -89,6 +90,7 @@ const createFarmer = async (req, res) => {
       email,
       password: ScertPassword,
       role,
+      createdBy: req.user.id,
     });
     console.log("insertUser:", insertUser);
     res.status(200).json({
@@ -99,6 +101,7 @@ const createFarmer = async (req, res) => {
         email: insertUser.email,
         password: insertUser.password,
         role: insertUser.role,
+        
       },
     });
   } catch (error) {
