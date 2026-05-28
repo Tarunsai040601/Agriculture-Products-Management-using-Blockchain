@@ -11,7 +11,7 @@ const fetchFarmers = async (req, res) => {
 
     const fetch_all_famers = await authSchema.find(
        {
-        createdBy: req.user.id,
+        createdBy: req.user.name,
         role: ["farmer"],
       },
       {
@@ -90,7 +90,7 @@ const createFarmer = async (req, res) => {
       email,
       password: ScertPassword,
       role,
-      createdBy: req.user.id,
+      createdBy: req.user.name,
     });
     console.log("insertUser:", insertUser);
     res.status(200).json({

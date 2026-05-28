@@ -5,6 +5,7 @@ const DataBase = require("./Config/Config.js");
 const authRouter = require("./Routers/AuthRouters/authRouter.js");
 const FarmerRouter = require("./Routers/createFarmerRouter/FarmerRouter.js");
 const dealerRoute = require("./Routers/createDealer/Dealer.js");
+const farmerPostRouter = require("./Routers/FarmerPostRoute/FarmerPostRouter.js");
 const app = express();
 
 // built-in middleware
@@ -17,6 +18,8 @@ app.use("/api/auth", authRouter);
 app.use("/api/create", FarmerRouter);
 // create dealer router
 app.use("/api/dealer", dealerRoute);
+// farmer post router
+app.use("/api/farmer", farmerPostRouter);
 // port
 const port = process.env.PORT || 8045;
 

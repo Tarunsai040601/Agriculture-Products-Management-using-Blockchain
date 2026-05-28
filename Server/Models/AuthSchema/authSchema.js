@@ -22,7 +22,7 @@ const authSchema = new mongoose.Schema({
   // which admin created this user
 
   createdBy: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: String,
     ref: "AuthModel",
   },
 
