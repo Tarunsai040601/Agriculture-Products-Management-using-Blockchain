@@ -11,6 +11,19 @@ const {
 const uploads = require("../../Multer/Multer.js");
 const farmerPostRouter = express.Router();
 
+const uploadSingleImage = (req, res, next) => {
+  uploads.single("image")(req, res, (error) => {
+    if (error) {
+      return res.status(400).json({
+        status: false,
+        message: "image upload failed",
+        error_message: error.message,
+      });
+    }
+    return next();
+  });
+};
+
 // get-farmer-post
 farmerPostRouter.get(
   "/getPost",
@@ -24,7 +37,7 @@ farmerPostRouter.post(
   "/postitem",
   authMiddleware,
   roleMiddleware(["farmer"]),
-  uploads.single("image"),
+  uploadSingleImage,
   PostItems,
 );
 
@@ -41,7 +54,7 @@ farmerPostRouter.patch(
   "/update",
   authMiddleware,
   roleMiddleware(["farmer"]),
-  uploads.single("image"),
+  uploadSingleImage,
   updatebyName,
 );
 

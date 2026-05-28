@@ -1,5 +1,5 @@
-const cloudinary=require('cloudinary');
-const dotenv=require('dotenv').config({quiet:true})
+const { v2: cloudinary } = require("cloudinary");
+require("dotenv").config({ quiet: true });
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,

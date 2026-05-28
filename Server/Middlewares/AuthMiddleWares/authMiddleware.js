@@ -7,18 +7,18 @@ console.log("JWT_TOKEN:", JWT_SCERT);
 // auth middleware
 const authMiddleware = async (req, res, next) => {
   try {
-    const AuthHeaders = await req.headers.authorization;
+    const AuthHeaders = req.headers.authorization;
     console.log("AuthHeaders:", AuthHeaders);
     if (!AuthHeaders) {
-      res.status(404).json({
+      return res.status(401).json({
         status: false,
         message: "authHeaders required",
       });
     }
-    const token = await AuthHeaders.split(" ")[1];
+    const token = AuthHeaders.split(" ")[1];
     console.log("token:", token);
     if (!token) {
-      res.status(404).json({
+      return res.status(401).json({
         status: false,
         message: "token required",
       });
@@ -27,7 +27,7 @@ const authMiddleware = async (req, res, next) => {
     console.log("decode:", decode);
     req.user = decode;
 
-    next();
+    return next();
   } catch (error) {
     console.log("middleware error:", error);
     return res
