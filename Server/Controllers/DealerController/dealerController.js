@@ -1,17 +1,14 @@
-const authSchema = require("../../Models/AuthSchema/authSchema.js");
+const authSchema=require('../../Models/AuthSchema/authSchema.js')
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
 // fetch all farmers
-// fetch all farmers and dealers
-
-const fetchFarmers = async (req, res) => {
-
+const fetchDealers = async (req, res) => {
   try {
 
-    const fetch_all_famers = await authSchema.find(
+    const fetch_all_dealers = await authSchema.find(
       {
-        role: { $in: ["farmer"] }
+        role: { $in: ["dealer"] }
       },
       {
         name: 1,
@@ -20,33 +17,32 @@ const fetchFarmers = async (req, res) => {
       }
     );
 
-    console.log("fetch_all_famers:", fetch_all_famers);
+    console.log("fetch_all_dealers:", fetch_all_dealers);
 
     res.status(200).json({
       status: true,
-      message: "fetch_all_famers",
-      data: fetch_all_famers,
+      message: "fetch_all_dealers",
+      data: fetch_all_dealers,
     });
 
   } catch (error) {
 
-    console.log("fetch_all_famers_error:", error.message);
+    console.log("fetch_all_dealers_error:", error.message);
 
     res.status(500).json({
       status: false,
-      message: "fetch_all_famers error",
+      message: "fetch_all_dealers error",
       err_message: error.message,
     });
 
   }
-
 };
 
 // create all farmers
-const createFarmer = async (req, res) => {
+const createDealer = async (req, res) => {
   try {
-    const { name, email, password, role } = req.body;
-    if (!name || !email || !password || !role) {
+    const { name, email, password,role} = req.body;
+    if (!name || !email || !password||!role) {
       return res.status(404).json({
         status: false,
         message: "all feilds required",
@@ -93,7 +89,7 @@ const createFarmer = async (req, res) => {
     console.log("insertUser:", insertUser);
     res.status(200).json({
       status: true,
-      message: "created farmer sucessfully done",
+      message: "created dealer sucessfully done",
       details: {
         name: insertUser.name,
         email: insertUser.email,
@@ -102,14 +98,14 @@ const createFarmer = async (req, res) => {
       },
     });
   } catch (error) {
-    console.log("error in create farmer:", error.message);
+    console.log("error in dealer farmer:", error.message);
     res.status(404).json({
       status: false,
-      message: "create farmer failed",
+      message: "create dealer failed",
       error_message: error.message,
     });
   }
 };
 
 // module export
-module.exports = { createFarmer, fetchFarmers };
+module.exports = {createDealer,fetchDealers };
