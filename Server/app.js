@@ -6,12 +6,13 @@ const authRouter = require("./Routers/AuthRouters/authRouter.js");
 const FarmerRouter = require("./Routers/createFarmerRouter/FarmerRouter.js");
 const dealerRoute = require("./Routers/createDealer/Dealer.js");
 const farmerPostRouter = require("./Routers/FarmerPostRoute/FarmerPostRouter.js");
+const cors=require('cors')
 const app = express();
 
 // built-in middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
+app.use(cors())
 // router middleware auth router
 app.use("/api/auth", authRouter);
 // create farmers router
