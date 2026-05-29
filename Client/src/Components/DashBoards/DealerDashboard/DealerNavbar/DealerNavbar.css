@@ -1,0 +1,305 @@
+/* ===== MAIN NAVBAR ===== */
+
+.dealer-navbar{
+  width:100%;
+  min-height:80px;
+  background:linear-gradient(
+    135deg,
+    #33691e,
+    #558b2f,
+    #8bc34a
+  );
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0 40px;
+  position:relative;
+  z-index:999;
+  box-sizing:border-box;
+  box-shadow:0 4px 20px rgba(0,0,0,0.15);
+  animation:dealerFade 0.7s ease;
+}
+
+/* ===== NAVBAR ANIMATION ===== */
+
+@keyframes dealerFade{
+
+  from{
+    opacity:0;
+    transform:translateY(-25px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0px);
+  }
+}
+
+/* ===== LOGO ===== */
+
+.dealer-logo h1{
+  color:white;
+  font-size:30px;
+  font-weight:700;
+  letter-spacing:1px;
+  transition:0.4s;
+  cursor:pointer;
+}
+
+.dealer-logo h1:hover{
+  transform:scale(1.05);
+}
+
+/* ===== NAV LINKS ===== */
+
+.dealer-nav-links{
+  display:flex;
+  align-items:center;
+  gap:30px;
+}
+
+.dealer-nav-links a{
+  text-decoration:none;
+  color:white;
+  font-size:17px;
+  font-weight:600;
+  position:relative;
+  transition:0.4s;
+}
+
+.dealer-nav-links a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-5px;
+  width:0%;
+  height:2px;
+  background:#f1f8e9;
+  transition:0.4s;
+}
+
+.dealer-nav-links a:hover::after{
+  width:100%;
+}
+
+.dealer-nav-links a:hover{
+  color:#f1f8e9;
+  transform:translateY(-2px);
+}
+
+/* ===== RIGHT SECTION ===== */
+
+.dealer-right-section{
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+
+/* ===== PROFILE ===== */
+
+.dealer-profile{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.dealer-profile-icon{
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  background:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:24px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.2);
+  animation:dealerRotate 5s linear infinite;
+}
+
+@keyframes dealerRotate{
+
+  0%{
+    transform:rotate(0deg);
+  }
+
+  100%{
+    transform:rotate(360deg);
+  }
+}
+
+.dealer-welcome{
+  color:white;
+  font-size:17px;
+  font-weight:600;
+}
+
+.dealer-welcome span{
+  color:#fffde7;
+}
+
+/* ===== LOGOUT BUTTON ===== */
+
+.dealer-logout-btn{
+  border:none;
+  padding:12px 24px;
+  border-radius:30px;
+  background:white;
+  color:#33691e;
+  font-size:15px;
+  font-weight:700;
+  cursor:pointer;
+  transition:0.4s;
+}
+
+.dealer-logout-btn:hover{
+  background:#f1f8e9;
+  transform:translateY(-2px) scale(1.05);
+}
+
+/* ===== TOGGLE ===== */
+
+.dealer-toggle{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  cursor:pointer;
+}
+
+.dealer-toggle span{
+  width:28px;
+  height:3px;
+  background:white;
+  border-radius:10px;
+  transition:0.4s;
+}
+
+/* ===== MOBILE MENU ===== */
+
+.dealer-mobile-menu{
+  position:absolute;
+  top:80px;
+  left:0;
+  width:100%;
+  background:linear-gradient(
+    180deg,
+    #558b2f,
+    #33691e
+  );
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:24px;
+  padding:30px 0;
+  animation:mobileDealer 0.4s ease;
+}
+
+@keyframes mobileDealer{
+
+  from{
+    opacity:0;
+    transform:translateY(-20px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0px);
+  }
+}
+
+.dealer-mobile-menu a{
+  text-decoration:none;
+  color:white;
+  font-size:18px;
+  font-weight:600;
+  transition:0.4s;
+}
+
+.dealer-mobile-menu a:hover{
+  color:#fffde7;
+  transform:scale(1.05);
+}
+
+/* ===== MOBILE PROFILE ===== */
+
+.mobile-dealer-profile{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+}
+
+.mobile-dealer-icon{
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  background:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:30px;
+}
+
+.mobile-dealer-welcome{
+  color:white;
+  font-size:18px;
+}
+
+.mobile-dealer-welcome span{
+  color:#fffde7;
+}
+
+/* ===== MOBILE LOGOUT ===== */
+
+.mobile-dealer-logout-btn{
+  border:none;
+  padding:12px 24px;
+  border-radius:30px;
+  background:white;
+  color:#33691e;
+  font-size:16px;
+  font-weight:700;
+  cursor:pointer;
+  transition:0.4s;
+}
+
+.mobile-dealer-logout-btn:hover{
+  background:#f1f8e9;
+  transform:scale(1.05);
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media(max-width:900px){
+
+  .dealer-nav-links,
+  .dealer-right-section{
+    display:none;
+  }
+
+  .dealer-toggle{
+    display:flex;
+  }
+
+  .dealer-navbar{
+    padding:0 20px;
+  }
+
+  .dealer-logo h1{
+    font-size:24px;
+  }
+}
+
+@media(max-width:500px){
+
+  .dealer-logo h1{
+    font-size:20px;
+  }
+
+  .dealer-mobile-menu a{
+    font-size:16px;
+  }
+
+  .mobile-dealer-welcome{
+    font-size:16px;
+  }
+}

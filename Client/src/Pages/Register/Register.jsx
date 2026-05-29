@@ -82,7 +82,7 @@ const Register = () => {
       const data = await response.json();
       if (!response.ok) throw new Error(data.message || "Registration failed");
       setSuccess(true);
-      setTimeout(() => navigate("/"), 1500);
+      setTimeout(() => navigate("/login"), 1500);
     } catch (err) {
       setApiError(err.message);
     } finally {
@@ -90,7 +90,14 @@ const Register = () => {
     }
   };
 
-  const strengthColors = ["#e0e0e0", "#ef5350", "#ff9800", "#fdd835", "#66bb6a", "#2e7d32"];
+  const strengthColors = [
+    "#e0e0e0",
+    "#ef5350",
+    "#ff9800",
+    "#fdd835",
+    "#66bb6a",
+    "#2e7d32",
+  ];
   const strengthLabels = ["", "Weak", "Fair", "Good", "Strong", "Very Strong"];
 
   return (
@@ -99,7 +106,9 @@ const Register = () => {
         <div className="success-overlay">
           <div className="success-icon">🌾</div>
           <div className="success-title">Welcome to AgroConnect!</div>
-          <div className="success-sub">Your account has been created successfully.</div>
+          <div className="success-sub">
+            Your account has been created successfully.
+          </div>
         </div>
       )}
 
@@ -156,7 +165,7 @@ const Register = () => {
                   Sign in to continue your journey.
                 </span>
               </div>
-              <a href="/" className="login-btn">
+              <a href="/login" className="login-btn">
                 ← Login
               </a>
             </div>
@@ -253,7 +262,9 @@ const Register = () => {
                       ))}
                       <span
                         className="strength-label"
-                        style={{ color: strengthColors[passwordStrength.score] }}
+                        style={{
+                          color: strengthColors[passwordStrength.score],
+                        }}
                       >
                         {strengthLabels[passwordStrength.score]}
                       </span>
@@ -281,19 +292,23 @@ const Register = () => {
               </div>
 
               {/* Role */}
+              {/* Role */}
               <div className="field-wrap">
                 <label className="field-label">Role</label>
+
                 <div className="field-inner">
                   <span className="field-icon">🛡️</span>
+
                   <select
-                    className="field-select disabled-select"
+                    className="field-select"
                     name="role"
-                    value="admin"
-                    disabled
+                    value={formData.role}
+                    onChange={handleChange}
                   >
                     <option value="admin">Admin</option>
+
+                    <option value="customer">Customer</option>
                   </select>
-                  <span className="role-badge">Default</span>
                 </div>
               </div>
             </div>
