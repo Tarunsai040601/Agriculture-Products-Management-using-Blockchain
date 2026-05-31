@@ -8,6 +8,8 @@ import AdminLayout from './Layouts/AdminLayout/AdminLayout'
 import FamerLayout from './Layouts/FarmerLayout/FarmerLayout'
 import CustomerLayout from './Layouts/CustomerLayout/CustomerLayout'
 import DealerLayout from './Layouts/DealerLayout/DealerLayout'
+import AdminHome from './Components/DashBoards/AdminDashboard/AdminHome/AdminHome'
+import CreateFarmer_Dealer from './Components/DashBoards/AdminDashboard/CreateFamer_Dealer/CreateFarmer_Dealer'
 
 const App = () => {
 
@@ -40,10 +42,12 @@ const App = () => {
 
         {/* ===== ADMIN DASHBOARD ===== */}
 
-        <Route
-          path='/adminDashboard'
-          element={<AdminLayout />}
-        />
+        <Route path='/adminDashboard' element={<AdminLayout />}>
+          <Route index element={<AdminHome/>}/>
+          <Route path='createfarmers_Dealer' element={<CreateFarmer_Dealer/>}/>
+          
+          </Route>
+        
 
         {/* ===== FARMER DASHBOARD ===== */}
 
