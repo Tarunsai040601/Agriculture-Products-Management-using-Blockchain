@@ -20,6 +20,7 @@ import DealerHome from "./Components/DashBoards/DealerDashboard/DealerHome/Deale
 import MyJob from "./Components/DashBoards/DealerDashboard/Myjob/MyJob";
 
 import CustomerHomePage from "./Components/DashBoards/CustomerDashboard/CustomerHomePage/CustomerHomePage";
+import About from "./Components/DashBoards/CustomerDashboard/About/About";
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
 
         <Route path="/" element={<CustomerLayout />}>
           <Route index element={<CustomerHomePage />} />
+          <Route path="about" element={<About />} />
         </Route>
 
         {/* ===== LOGIN PAGE ===== */}
