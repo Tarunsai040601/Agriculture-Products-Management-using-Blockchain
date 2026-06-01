@@ -25,6 +25,7 @@ import About from "./Components/DashBoards/CustomerDashboard/About/About";
 import Items from "./Components/DashBoards/CustomerDashboard/Items/Items";
 import Myoders from "./Components/DashBoards/CustomerDashboard/Myoders/Myoders";
 import Tracking from "./Components/DashBoards/CustomerDashboard/Tracking/Tracking";
+import Reviews from "./Components/DashBoards/CustomerDashboard/Reviews/Reviews";
 
 const App = () => {
   return (
@@ -38,6 +39,7 @@ const App = () => {
           <Route path="items" element={<Items />} />
           <Route path="myorders" element={<Myoders />} />
           <Route path="tracking" element={<Tracking />} />
+          <Route path="reviews" element={<Reviews />} />
         </Route>
 
         {/* ===== LOGIN PAGE ===== */}
