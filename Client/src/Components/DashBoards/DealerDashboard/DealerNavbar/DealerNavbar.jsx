@@ -51,7 +51,7 @@ const DealerNavbar = () => {
           Home
         </Link>
 
-        <Link to="/myjob">
+        <Link to="myjob">
           MyJob
         </Link>
 
@@ -117,7 +117,7 @@ const DealerNavbar = () => {
               Home
             </Link>
 
-            <Link to="/myjob">
+            <Link to="myjob">
               MyJob
             </Link>
 
