@@ -1,0 +1,425 @@
+/* Farmer ShowDealers — scoped prefix: fshowdealers- */
+
+.fshowdealers-page {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 28px 20px 48px;
+  box-sizing: border-box;
+  min-height: 60vh;
+}
+
+.fshowdealers-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.fshowdealers-title {
+  margin: 0;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 700;
+  color: #0d47a1;
+  letter-spacing: -0.02em;
+}
+
+.fshowdealers-subtitle {
+  margin: 10px auto 0;
+  max-width: 520px;
+  font-size: clamp(0.9rem, 1.8vw, 1rem);
+  color: #546e7a;
+  line-height: 1.5;
+}
+
+.fshowdealers-search-wrap {
+  position: relative;
+  max-width: 480px;
+  margin: 20px auto 0;
+  width: 100%;
+}
+
+.fshowdealers-search {
+  width: 100%;
+  padding: 12px 44px 12px 16px;
+  border: 1px solid #90caf9;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  background: #fff;
+  color: #263238;
+  box-sizing: border-box;
+  box-shadow: 0 4px 14px rgba(13, 71, 161, 0.08);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fshowdealers-search:focus {
+  outline: none;
+  border-color: #1565c0;
+  box-shadow: 0 0 0 3px rgba(21, 101, 192, 0.18);
+}
+
+.fshowdealers-search::placeholder {
+  color: #90a4ae;
+}
+
+.fshowdealers-search-clear {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: #e3f2fd;
+  color: #1565c0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.fshowdealers-search-clear:hover {
+  background: #bbdefb;
+}
+
+.fshowdealers-count {
+  text-align: center;
+  margin: 12px 0 0;
+  font-size: 0.88rem;
+  color: #78909c;
+}
+
+.fshowdealers-status {
+  text-align: center;
+  margin-top: 48px;
+  font-size: 1rem;
+  color: #607d8b;
+}
+
+.fshowdealers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 28px;
+}
+
+.fshowdealers-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(160deg, #ffffff 0%, #f5f9ff 100%);
+  border: 1px solid #e3f2fd;
+  border-radius: 20px;
+  padding: 28px 20px 24px;
+  box-shadow: 0 8px 24px rgba(13, 71, 161, 0.1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  animation: fshowdealers-fade-in 0.5s ease backwards;
+}
+
+.fshowdealers-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 32px rgba(13, 71, 161, 0.16);
+}
+
+.fshowdealers-img-ring {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  padding: 5px;
+  background: linear-gradient(135deg, #42a5f5, #1565c0);
+  box-shadow: 0 6px 18px rgba(21, 101, 192, 0.35);
+  flex-shrink: 0;
+}
+
+.fshowdealers-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #fff;
+  display: block;
+}
+
+.fshowdealers-card-body {
+  width: 100%;
+  text-align: center;
+  margin-top: 18px;
+}
+
+.fshowdealers-name {
+  margin: 0;
+  font-size: clamp(1.05rem, 2vw, 1.2rem);
+  font-weight: 600;
+  color: #1a237e;
+  word-break: break-word;
+}
+
+.fshowdealers-email {
+  margin: 10px 0 0;
+  font-size: 0.88rem;
+  color: #455a64;
+  line-height: 1.45;
+  word-break: break-all;
+}
+
+.fshowdealers-label {
+  display: block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #90a4ae;
+  margin-bottom: 4px;
+}
+
+.fshowdealers-assign-btn {
+  margin-top: 18px;
+  width: 100%;
+  max-width: 220px;
+  padding: 11px 18px;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  background: linear-gradient(135deg, #1e88e5, #1565c0);
+  box-shadow: 0 4px 12px rgba(21, 101, 192, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.fshowdealers-assign-btn:hover {
+  filter: brightness(1.06);
+  box-shadow: 0 6px 16px rgba(21, 101, 192, 0.45);
+  transform: translateY(-1px);
+}
+
+.fshowdealers-assign-btn:active {
+  transform: translateY(0);
+}
+
+@keyframes fshowdealers-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stagger animation for first cards */
+.fshowdealers-card:nth-child(1) { animation-delay: 0.05s; }
+.fshowdealers-card:nth-child(2) { animation-delay: 0.1s; }
+.fshowdealers-card:nth-child(3) { animation-delay: 0.15s; }
+.fshowdealers-card:nth-child(4) { animation-delay: 0.2s; }
+.fshowdealers-card:nth-child(5) { animation-delay: 0.25s; }
+.fshowdealers-card:nth-child(6) { animation-delay: 0.3s; }
+
+@media (max-width: 768px) {
+  .fshowdealers-page {
+    padding: 20px 16px 40px;
+  }
+
+  .fshowdealers-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 18px;
+  }
+
+  .fshowdealers-img-ring {
+    width: 96px;
+    height: 96px;
+  }
+}
+
+@media (max-width: 480px) {
+  .fshowdealers-grid {
+    grid-template-columns: 1fr;
+    max-width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .fshowdealers-card {
+    padding: 24px 18px 20px;
+  }
+
+  .fshowdealers-assign-btn {
+    max-width: 100%;
+  }
+}
+
+/* Order modal */
+.fshowdealers-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(13, 71, 161, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  box-sizing: border-box;
+  backdrop-filter: blur(4px);
+}
+
+.fshowdealers-modal {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  max-height: 92vh;
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 18px;
+  padding: 28px 24px 24px;
+  box-shadow: 0 20px 50px rgba(13, 71, 161, 0.25);
+  animation: fshowdealers-modal-in 0.3s ease;
+}
+
+.fshowdealers-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  background: #e3f2fd;
+  color: #1565c0;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.fshowdealers-modal-close:hover {
+  background: #bbdefb;
+}
+
+.fshowdealers-modal-title {
+  margin: 0 36px 6px 0;
+  font-size: 1.35rem;
+  color: #0d47a1;
+}
+
+.fshowdealers-modal-dealer {
+  margin: 0 0 20px;
+  font-size: 0.9rem;
+  color: #546e7a;
+}
+
+.fshowdealers-order-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.fshowdealers-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fshowdealers-field span {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #37474f;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.fshowdealers-field input,
+.fshowdealers-field textarea,
+.fshowdealers-field select {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid #90caf9;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: #263238;
+  background: #fafcff;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fshowdealers-field input:focus,
+.fshowdealers-field textarea:focus,
+.fshowdealers-field select:focus {
+  outline: none;
+  border-color: #1565c0;
+  box-shadow: 0 0 0 3px rgba(21, 101, 192, 0.15);
+}
+
+.fshowdealers-field textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.fshowdealers-modal-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.fshowdealers-cancel-btn,
+.fshowdealers-submit-btn {
+  flex: 1;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+.fshowdealers-cancel-btn {
+  background: #eceff1;
+  color: #455a64;
+}
+
+.fshowdealers-cancel-btn:hover:not(:disabled) {
+  background: #cfd8dc;
+}
+
+.fshowdealers-submit-btn {
+  background: linear-gradient(135deg, #1e88e5, #1565c0);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(21, 101, 192, 0.3);
+}
+
+.fshowdealers-submit-btn:hover:not(:disabled) {
+  filter: brightness(1.06);
+}
+
+.fshowdealers-cancel-btn:disabled,
+.fshowdealers-submit-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+@keyframes fshowdealers-modal-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .fshowdealers-modal {
+    padding: 24px 18px 20px;
+    border-radius: 14px;
+  }
+
+  .fshowdealers-modal-actions {
+    flex-direction: column;
+  }
+}

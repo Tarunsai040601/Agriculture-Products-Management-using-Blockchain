@@ -43,11 +43,11 @@ const FarmerNavbar = () => {
           Home
         </Link>
 
-        <Link to="/uploaditems">
+        <Link to="uploaditems">
           UploadItems
         </Link>
 
-        <Link to="/showitems">
+        <Link to="showitems">
           ShowItems
         </Link>
 
@@ -55,7 +55,7 @@ const FarmerNavbar = () => {
           Orders
         </Link>
 
-        <Link to="/showdealer">
+        <Link to="showdealer">
           ShowDealer
         </Link>
 

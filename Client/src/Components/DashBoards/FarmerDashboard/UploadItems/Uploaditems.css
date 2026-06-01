@@ -1,0 +1,346 @@
+/* ===========================
+   BUTTON LOADING
+=========================== */
+
+.uploadBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.uploadBtn:disabled {
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+.uploadSpinner {
+  width: 18px;
+  height: 18px;
+  border: 3px solid
+    rgba(255, 255, 255, 0.3);
+
+  border-top: 3px solid #fff;
+
+  border-radius: 50%;
+
+  animation: uploadSpin 0.8s linear
+    infinite;
+}
+
+@keyframes uploadSpin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* ====================================
+   MAIN SECTION
+==================================== */
+
+.uploadItemsSection {
+  width: 100%;
+  min-height: 100vh;
+  padding: 120px 20px 40px;
+  background: linear-gradient(
+    135deg,
+    #f1f8e9,
+    #dcedc8,
+    #c8e6c9
+  );
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.uploadItemsContainer {
+  width: 100%;
+  max-width: 1400px;
+
+  display: flex;
+
+  background: #fff;
+
+  border-radius: 25px;
+
+  overflow: hidden;
+
+  box-shadow: 0 15px 40px
+    rgba(0, 0, 0, 0.12);
+
+  animation: uploadContainer 1s ease;
+}
+
+/* ====================================
+   IMAGE SIDE
+==================================== */
+
+.uploadItemsImageSide {
+  flex: 1;
+  position: relative;
+  min-height: 700px;
+  overflow: hidden;
+}
+
+.uploadItemsImageSide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  animation: zoomImage 8s infinite
+    alternate;
+}
+
+.uploadOverlay {
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0, 80, 0, 0.5);
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+
+  padding: 50px;
+
+  color: white;
+}
+
+.uploadOverlay h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.uploadOverlay p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  max-width: 500px;
+}
+
+/* ====================================
+   FORM SIDE
+==================================== */
+
+.uploadItemsFormSide {
+  flex: 1;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  padding: 50px;
+}
+
+.uploadItemsFormSide form {
+  width: 100%;
+  max-width: 500px;
+}
+
+.uploadItemsFormSide h2 {
+  text-align: center;
+
+  color: #2e7d32;
+
+  margin-bottom: 30px;
+
+  font-size: 2rem;
+}
+
+/* ====================================
+   INPUTS
+==================================== */
+
+.uploadInputGroup {
+  margin-bottom: 20px;
+}
+
+.uploadInputGroup input,
+.uploadInputGroup textarea {
+  width: 100%;
+
+  padding: 15px;
+
+  border-radius: 12px;
+
+  border: 2px solid #c8e6c9;
+
+  outline: none;
+
+  font-size: 1rem;
+
+  transition: 0.4s;
+}
+
+.uploadInputGroup textarea {
+  resize: none;
+  min-height: 120px;
+}
+
+.uploadInputGroup input:focus,
+.uploadInputGroup textarea:focus {
+  border-color: #43a047;
+
+  box-shadow: 0 0 15px
+    rgba(67, 160, 71, 0.3);
+
+  transform: translateY(-2px);
+}
+
+/* ====================================
+   BUTTON
+==================================== */
+
+.uploadBtn {
+  width: 100%;
+
+  padding: 15px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  cursor: pointer;
+
+  font-size: 1rem;
+
+  font-weight: 700;
+
+  color: white;
+
+  background: linear-gradient(
+    135deg,
+    #2e7d32,
+    #66bb6a
+  );
+
+  transition: 0.4s;
+}
+
+.uploadBtn:hover {
+  transform: translateY(-4px);
+
+  box-shadow: 0 10px 25px
+    rgba(46, 125, 50, 0.35);
+}
+
+.uploadBtn:active {
+  transform: scale(0.96);
+}
+
+/* ====================================
+   ANIMATIONS
+==================================== */
+
+@keyframes zoomImage {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes uploadContainer {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ====================================
+   TABLET
+==================================== */
+
+@media (max-width: 992px) {
+  .uploadItemsContainer {
+    flex-direction: column;
+  }
+
+  .uploadItemsImageSide {
+    min-height: 350px;
+  }
+}
+
+/* ====================================
+   MOBILE
+==================================== */
+
+@media (max-width: 768px) {
+  .uploadItemsSection {
+    padding: 100px 15px 30px;
+  }
+
+  .uploadOverlay {
+    padding: 25px;
+  }
+
+  .uploadOverlay h1 {
+    font-size: 2rem;
+  }
+
+  .uploadOverlay p {
+    font-size: 1rem;
+  }
+
+  .uploadItemsFormSide {
+    padding: 25px;
+  }
+
+  .uploadItemsFormSide h2 {
+    font-size: 1.6rem;
+  }
+}
+
+/* ====================================
+   SMALL MOBILE
+==================================== */
+
+@media (max-width: 480px) {
+  .uploadOverlay h1 {
+    font-size: 1.5rem;
+  }
+
+  .uploadItemsImageSide {
+    min-height: 250px;
+  }
+
+  .uploadInputGroup input,
+  .uploadInputGroup textarea {
+    padding: 12px;
+  }
+}
+
+/* ====================================
+   EDIT MODE (scoped preview only)
+==================================== */
+
+.uploadCurrentImageLabel {
+  margin: 0 0 8px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.uploadCurrentImagePreview {
+  width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  background: #f9f9f9;
+}
+
+.uploadImageHint {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.8rem;
+  color: #666;
+}

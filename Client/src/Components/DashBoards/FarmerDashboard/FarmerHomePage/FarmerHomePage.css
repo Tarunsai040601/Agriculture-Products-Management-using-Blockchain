@@ -1,0 +1,475 @@
+/* =====================================================
+   FARMER HOME PAGE
+===================================================== */
+
+.farmerHome {
+  width: 100%;
+  overflow-x: hidden;
+  background: #f8fff8;
+}
+
+/* =====================================================
+   HERO SECTION
+===================================================== */
+
+.farmerHero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.farmerHeroVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transform: scale(1.1);
+}
+
+.farmerOverlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.45),
+    rgba(0, 0, 0, 0.55)
+  );
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  padding: 20px;
+}
+
+.farmerHeroContent {
+  max-width: 900px;
+  color: white;
+
+  animation: heroContentAnimation 1s ease;
+}
+
+.farmerHeroContent h1 {
+  font-size: 4.5rem;
+  font-weight: 800;
+  margin-bottom: 25px;
+
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.farmerHeroContent p {
+  font-size: 1.3rem;
+  line-height: 1.9;
+  margin-bottom: 35px;
+}
+
+.farmerHeroContent button {
+  border: none;
+  padding: 16px 40px;
+  border-radius: 50px;
+
+  background: linear-gradient(
+    135deg,
+    #2e7d32,
+    #66bb6a
+  );
+
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.4s ease;
+}
+
+.farmerHeroContent button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(76, 175, 80, 0.4);
+}
+
+/* =====================================================
+   ABOUT SECTION
+===================================================== */
+
+.farmerAboutSection {
+  padding: 100px 5%;
+}
+
+.farmerAboutContainer {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+
+  max-width: 1400px;
+  margin: auto;
+}
+
+.farmerAboutContent {
+  flex: 1;
+}
+
+.farmerTag {
+  background: #e8f5e9;
+  color: #2e7d32;
+
+  padding: 10px 22px;
+  border-radius: 50px;
+
+  font-weight: 700;
+}
+
+.farmerAboutContent h2 {
+  font-size: 3rem;
+  margin: 25px 0;
+  color: #1b5e20;
+}
+
+.farmerAboutContent p {
+  font-size: 1.1rem;
+  line-height: 1.9;
+  color: #555;
+}
+
+.farmerFeatures {
+  margin-top: 35px;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.featureCard {
+  background: white;
+  padding: 20px;
+
+  border-radius: 16px;
+
+  font-weight: 600;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+
+  transition: 0.4s;
+}
+
+.featureCard:hover {
+  transform: translateY(-8px);
+
+  background: #4caf50;
+  color: white;
+}
+
+.farmerAboutImage {
+  flex: 1;
+}
+
+.farmerAboutImage img {
+  width: 100%;
+  border-radius: 25px;
+
+  box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+
+  transition: 0.5s;
+}
+
+.farmerAboutImage img:hover {
+  transform: scale(1.04);
+}
+
+/* =====================================================
+   CROPS SECTION
+===================================================== */
+
+.cropSection {
+  padding: 100px 5%;
+  background: #eef8ee;
+}
+
+.sectionTitle {
+  text-align: center;
+
+  font-size: 3rem;
+  color: #1b5e20;
+
+  margin-bottom: 60px;
+}
+
+.cropGrid {
+  max-width: 1400px;
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(280px, 1fr)
+  );
+
+  gap: 30px;
+}
+
+.cropCard {
+  background: white;
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+
+  transition: 0.5s;
+}
+
+.cropCard:hover {
+  transform: translateY(-12px);
+}
+
+.cropCard img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+
+  transition: 0.6s;
+}
+
+.cropCard:hover img {
+  transform: scale(1.08);
+}
+
+.cropCard h3 {
+  padding: 20px;
+  text-align: center;
+
+  color: #2e7d32;
+  font-size: 1.4rem;
+}
+
+/* =====================================================
+   STATS SECTION
+===================================================== */
+
+.farmerStats {
+  padding: 100px 5%;
+
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(220px, 1fr)
+  );
+
+  gap: 30px;
+
+  max-width: 1400px;
+  margin: auto;
+}
+
+.statCard {
+  background: white;
+
+  padding: 40px;
+
+  text-align: center;
+
+  border-radius: 25px;
+
+  box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+
+  transition: 0.4s;
+}
+
+.statCard:hover {
+  transform: translateY(-10px);
+
+  background: linear-gradient(
+    135deg,
+    #4caf50,
+    #2e7d32
+  );
+
+  color: white;
+}
+
+.statCard h2 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.statCard p {
+  font-size: 1.1rem;
+}
+
+/* =====================================================
+   CTA SECTION
+===================================================== */
+
+.farmerCTA {
+  padding: 120px 20px;
+
+  text-align: center;
+
+  background: linear-gradient(
+    135deg,
+    #1b5e20,
+    #4caf50
+  );
+
+  color: white;
+}
+
+.farmerCTA h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.farmerCTA p {
+  max-width: 700px;
+  margin: auto;
+
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+
+.farmerCTA button {
+  margin-top: 35px;
+
+  border: none;
+  padding: 16px 40px;
+
+  border-radius: 50px;
+
+  background: white;
+  color: #2e7d32;
+
+  font-weight: 700;
+  font-size: 1rem;
+
+  cursor: pointer;
+
+  transition: 0.4s;
+}
+
+.farmerCTA button:hover {
+  transform: translateY(-5px);
+}
+
+/* =====================================================
+   ANIMATIONS
+===================================================== */
+
+@keyframes heroContentAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(70px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =====================================================
+   LAPTOP
+===================================================== */
+
+@media (max-width: 1200px) {
+  .farmerHeroContent h1 {
+    font-size: 3.5rem;
+  }
+
+  .farmerAboutContent h2 {
+    font-size: 2.4rem;
+  }
+}
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 992px) {
+
+  .farmerAboutContainer {
+    flex-direction: column;
+  }
+
+  .farmerHeroContent h1 {
+    font-size: 3rem;
+  }
+
+  .sectionTitle {
+    font-size: 2.4rem;
+  }
+
+  .farmerCTA h2 {
+    font-size: 2.4rem;
+  }
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+  .farmerHero {
+    height: 80vh;
+  }
+
+  .farmerHeroContent h1 {
+    font-size: 2.3rem;
+  }
+
+  .farmerHeroContent p {
+    font-size: 1rem;
+  }
+
+  .farmerFeatures {
+    grid-template-columns: 1fr;
+  }
+
+  .farmerAboutContent h2 {
+    font-size: 2rem;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+  }
+
+  .farmerCTA h2 {
+    font-size: 2rem;
+  }
+}
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+
+  .farmerHeroContent h1 {
+    font-size: 1.8rem;
+  }
+
+  .farmerHeroContent button {
+    width: 100%;
+  }
+
+  .farmerAboutSection,
+  .cropSection,
+  .farmerStats {
+    padding: 70px 15px;
+  }
+
+  .farmerCTA {
+    padding: 80px 15px;
+  }
+
+  .statCard {
+    padding: 30px 20px;
+  }
+}

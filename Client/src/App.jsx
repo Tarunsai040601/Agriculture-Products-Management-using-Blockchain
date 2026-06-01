@@ -12,6 +12,10 @@ import AdminHome from './Components/DashBoards/AdminDashboard/AdminHome/AdminHom
 import CreateFarmer_Dealer from './Components/DashBoards/AdminDashboard/CreateFamer_Dealer/CreateFarmer_Dealer'
 import Show_Farmers from './Components/DashBoards/AdminDashboard/Show_Farmers/Show_Farmers'
 import Show_Dealers from './Components/DashBoards/AdminDashboard/Show_Dealers/Show_Dealers'
+import FarmerHomePage from './Components/DashBoards/FarmerDashboard/FarmerHomePage/FarmerHomePage'
+import UploadItems from './Components/DashBoards/FarmerDashboard/UploadItems/UploadItems'
+import ShowItems from './Components/DashBoards/FarmerDashboard/ShowItems/ShowItems'
+import ShowDealers from './Components/DashBoards/FarmerDashboard/ShowDealers/ShowDealers'
 
 
 const App = () => {
@@ -50,17 +54,19 @@ const App = () => {
           <Route path='createfarmers_Dealer' element={<CreateFarmer_Dealer/>}/>
           <Route path='showfarmers' element={<Show_Farmers/>}/>
           <Route path='showdealers' element={<Show_Dealers/>}/>
-       
-          
           </Route>
         
 
         {/* ===== FARMER DASHBOARD ===== */}
-
-        <Route
-          path='/farmerDashboard'
-          element={<FamerLayout />}
-        />
+          <Route path='/farmerDashboard'element={<FamerLayout/>}>
+            <Route index element={<FarmerHomePage/>}/>
+            <Route path='uploaditems' element={<UploadItems/>}/>
+            <Route path='showitems' element={<ShowItems/>}/>
+            <Route path='showdealer' element={<ShowDealers/>}/>
+          </Route>
+          
+        
+    
 
         {/* ===== DEALER DASHBOARD ===== */}
 
