@@ -160,6 +160,11 @@ const TrackingCard = ({ order, cancelled = false, style }) => {
           <p className="tracking-card__farmer">
             Farmer: {order.farmerName || "—"}
           </p>
+          {order.dealerName && (
+            <p className="tracking-card__dealer">
+              Dealer: {order.dealerName}
+            </p>
+          )}
           <p className="tracking-card__date">
             Ordered {formatDate(order.createdAt)}
           </p>
@@ -189,7 +194,7 @@ const Tracking = () => {
   const [loading, setLoading] = useState(true);
   const [fetchError, setFetchError] = useState("");
 
-  const fetchOrders = useCallback(async () => {
+  const fetchOrders = useCallback(async (silent = false) => {
     if (!token) {
       setOrders([]);
       setLoading(false);
@@ -197,7 +202,7 @@ const Tracking = () => {
     }
 
     try {
-      setLoading(true);
+      if (!silent) setLoading(true);
       setFetchError("");
 
       const res = await axios.get(`${ORDER_API}/my-orders`, {
@@ -213,13 +218,23 @@ const Tracking = () => {
           "Could not load orders. Please log in and try again.",
       );
     } finally {
-      setLoading(false);
+      if (!silent) setLoading(false);
     }
   }, [token]);
 
   useEffect(() => {
     fetchOrders();
   }, [fetchOrders]);
+
+  useEffect(() => {
+    if (!token) return undefined;
+
+    const interval = setInterval(() => {
+      fetchOrders(true);
+    }, 30000);
+
+    return () => clearInterval(interval);
+  }, [token, fetchOrders]);
 
   const { activeOrders, cancelledOrders } = useMemo(() => {
     const active = [];
@@ -264,9 +279,19 @@ const Tracking = () => {
       <header className="tracking-hero tracking-fade-down">
         <h1>Track your orders</h1>
         <p>Live status from order placed to delivery at your address.</p>
-        <Link to="/myorders" className="tracking-orders-link">
-          View all orders
-        </Link>
+        <div className="tracking-hero-actions">
+          <button
+            type="button"
+            className="tracking-refresh-btn"
+            onClick={() => fetchOrders()}
+            disabled={loading}
+          >
+            {loading ? "Refreshing..." : "Refresh status"}
+          </button>
+          <Link to="/myorders" className="tracking-orders-link">
+            View all orders
+          </Link>
+        </div>
       </header>
 
       <div className="tracking-body">

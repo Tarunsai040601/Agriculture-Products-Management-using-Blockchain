@@ -44,6 +44,36 @@
   box-shadow: 0 12px 28px rgba(225, 179, 25, 0.4);
 }
 
+.tracking-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.tracking-refresh-btn {
+  padding: 12px 24px;
+  border: 2px solid rgba(255, 255, 255, 0.75);
+  border-radius: 10px;
+  background: transparent;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.tracking-refresh-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+}
+
+.tracking-refresh-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
 .tracking-body {
   max-width: 760px;
   margin: 0 auto;
@@ -151,7 +181,8 @@
 }
 
 .tracking-card__meta,
-.tracking-card__farmer {
+.tracking-card__farmer,
+.tracking-card__dealer {
   margin: 0 0 4px;
   font-size: 0.88rem;
   color: #555;

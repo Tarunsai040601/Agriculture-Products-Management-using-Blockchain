@@ -10,6 +10,10 @@ const dealerOrderSchema = new mongoose.Schema(
     dealerName: { type: String, required: true, trim: true },
     dealerEmail: { type: String, required: true, trim: true },
     farmerName: { type: String, required: true, trim: true },
+    customerOrderId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "CustomerOrderModel",
+    },
     orderStatus: {
       type: String,
       enum: ["pending", "received", "completed"],

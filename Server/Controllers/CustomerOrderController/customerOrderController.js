@@ -2,6 +2,9 @@ const CustomerOrderModel = require("../../Models/customer_orders/customer_order_
 const DealerOrderModel = require("../../Models/dealer_orders/dealer_order_schema.js");
 const authSchema = require("../../Models/AuthSchema/authSchema.js");
 const itemsSchema = require("../../Models/farmer_posts/farmer_post_schema.js");
+const {
+  reconcileDealerOrdersForCustomer,
+} = require("../DealerOrderController/dealerOrderController.js");
 
 const placeCustomerOrder = async (req, res) => {
   try {
@@ -83,11 +86,17 @@ const getCustomerOrders = async (req, res) => {
       customerEmail: req.user.email,
     }).sort({ createdAt: -1 });
 
+    await reconcileDealerOrdersForCustomer(orders);
+
+    const refreshed = await CustomerOrderModel.find({
+      customerEmail: req.user.email,
+    }).sort({ createdAt: -1 });
+
     return res.status(200).json({
       status: true,
       message: "your orders fetched successfully",
-      total_orders: orders.length,
-      data: orders,
+      total_orders: refreshed.length,
+      data: refreshed,
     });
   } catch (error) {
     console.log("getCustomerOrders_error:", error.message);
@@ -236,6 +245,7 @@ const acceptAndAssignToDealer = async (req, res) => {
       dealerName: dealer.name,
       dealerEmail: dealer.email,
       farmerName: req.user.name,
+      customerOrderId: order._id,
     });
 
     return res.status(200).json({
