@@ -104,15 +104,7 @@ const CustomerNavbar = () => {
           About_us
         </Link>
 
-        <Link
-          to="/items"
-          onClick={(e) =>
-            handleProtectedRoute(
-              e,
-              "/items"
-            )
-          }
-        >
+        <Link to="/items">
           Items
         </Link>
 
@@ -216,15 +208,7 @@ const CustomerNavbar = () => {
               About_us
             </Link>
 
-            <Link
-              to="/items"
-              onClick={(e) =>
-                handleProtectedRoute(
-                  e,
-                  "/items"
-                )
-              }
-            >
+            <Link to="/items">
               Items
             </Link>
 

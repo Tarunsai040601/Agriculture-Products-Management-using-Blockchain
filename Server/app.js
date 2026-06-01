@@ -7,6 +7,7 @@ const FarmerRouter = require("./Routers/createFarmerRouter/FarmerRouter.js");
 const dealerRoute = require("./Routers/createDealer/Dealer.js");
 const farmerPostRouter = require("./Routers/FarmerPostRoute/FarmerPostRouter.js");
 const dealerOrderRouter = require("./Routers/DealerOrderRoute/DealerOrderRouter.js");
+const customerOrderRouter = require("./Routers/CustomerOrderRoute/CustomerOrderRouter.js");
 const cors=require('cors')
 const app = express();
 
@@ -24,6 +25,8 @@ app.use("/api/dealer", dealerRoute);
 app.use("/api/farmer", farmerPostRouter);
 // dealer order router
 app.use("/api/dealer-order", dealerOrderRouter);
+// customer order router
+app.use("/api/customer-order", customerOrderRouter);
 // port
 const port = process.env.PORT || 8045;
 

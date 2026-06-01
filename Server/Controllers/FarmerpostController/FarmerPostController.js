@@ -4,6 +4,51 @@ const itemsSchema = require("../../Models/farmer_posts/farmer_post_schema.js");
 // GET ALL ITEMS
 // =========================================
 
+const getAllItemsForCustomers = async (req, res) => {
+  try {
+    console.log("\n========== GET ALL ITEMS (CUSTOMERS) ==========");
+
+    const getItems = await itemsSchema.find().sort({ createdAt: -1 });
+
+    return res.status(200).json({
+      status: true,
+      message: "all farmer products fetched successfully",
+      total_items: getItems.length,
+      data: getItems,
+    });
+  } catch (error) {
+    console.log("getAllItemsForCustomers_error:", error.message);
+
+    return res.status(500).json({
+      status: false,
+      message: "failed to fetch products",
+      error_message: error.message,
+    });
+  }
+};
+
+// all farmer posts — no login (customer Items page)
+const getPublicFarmerItems = async (req, res) => {
+  try {
+    const getItems = await itemsSchema.find().sort({ createdAt: -1 });
+
+    return res.status(200).json({
+      status: true,
+      message: "farmer products fetched successfully",
+      total_items: getItems.length,
+      data: getItems,
+    });
+  } catch (error) {
+    console.log("getPublicFarmerItems_error:", error.message);
+
+    return res.status(500).json({
+      status: false,
+      message: "failed to fetch farmer products",
+      error_message: error.message,
+    });
+  }
+};
+
 const Getallitems = async (req, res) => {
   try {
     console.log("\n========== GET ALL ITEMS ==========");
@@ -333,6 +378,9 @@ const deletebyName = async (req, res) => {
 // =========================================
 
 module.exports = {
+  getAllItemsForCustomers,
+  getPublicFarmerItems,
+
   Getallitems,
 
   PostItems,

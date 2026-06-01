@@ -2,6 +2,8 @@ const express = require("express");
 const authMiddleware = require("../../Middlewares/AuthMiddleWares/authMiddleware.js");
 const roleMiddleware = require("../../Middlewares/RoleMiddleWares/roleMiddleware.js");
 const {
+  getAllItemsForCustomers,
+  getPublicFarmerItems,
   Getallitems,
   PostItems,
   getByname,
@@ -23,6 +25,17 @@ const uploadSingleImage = (req, res, next) => {
     return next();
   });
 };
+
+// all farmer posts for customer Items page (no login)
+farmerPostRouter.get("/public-items", getPublicFarmerItems);
+
+// all farmer products for logged-in customers
+farmerPostRouter.get(
+  "/all-items",
+  authMiddleware,
+  roleMiddleware(["customer"]),
+  getAllItemsForCustomers,
+);
 
 // get-farmer-post
 farmerPostRouter.get(

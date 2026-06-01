@@ -21,6 +21,8 @@ import MyJob from "./Components/DashBoards/DealerDashboard/Myjob/MyJob";
 
 import CustomerHomePage from "./Components/DashBoards/CustomerDashboard/CustomerHomePage/CustomerHomePage";
 import About from "./Components/DashBoards/CustomerDashboard/About/About";
+import Items from "./Components/DashBoards/CustomerDashboard/Items/Items";
+import Myoders from "./Components/DashBoards/CustomerDashboard/Myoders/Myoders";
 
 const App = () => {
   return (
@@ -31,6 +33,8 @@ const App = () => {
         <Route path="/" element={<CustomerLayout />}>
           <Route index element={<CustomerHomePage />} />
           <Route path="about" element={<About />} />
+          <Route path="items" element={<Items />} />
+          <Route path="myorders" element={<Myoders />} />
         </Route>
 
         {/* ===== LOGIN PAGE ===== */}
@@ -68,9 +72,7 @@ const App = () => {
           <Route path="myjob" element={<MyJob />} />
         </Route>
 
-        <Route path="/customerDashboard" element={<CustomerLayout />}>
-          <Route index element={<CustomerHomePage />} />
-        </Route>
+       
       </Routes>
     </div>
   );
