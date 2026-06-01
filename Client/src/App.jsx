@@ -16,6 +16,7 @@ import FarmerHomePage from "./Components/DashBoards/FarmerDashboard/FarmerHomePa
 import UploadItems from "./Components/DashBoards/FarmerDashboard/UploadItems/UploadItems";
 import ShowItems from "./Components/DashBoards/FarmerDashboard/ShowItems/ShowItems";
 import ShowDealers from "./Components/DashBoards/FarmerDashboard/ShowDealers/ShowDealers";
+import Orders from "./Components/DashBoards/FarmerDashboard/Orders/Orders";
 import DealerHome from "./Components/DashBoards/DealerDashboard/DealerHome/DealerHome";
 import MyJob from "./Components/DashBoards/DealerDashboard/Myjob/MyJob";
 
@@ -65,6 +66,7 @@ const App = () => {
           <Route path="uploaditems" element={<UploadItems />} />
           <Route path="showitems" element={<ShowItems />} />
           <Route path="showdealer" element={<ShowDealers />} />
+          <Route path="orders" element={<Orders />} />
         </Route>
 
         {/* ===== DEALER DASHBOARD ===== */}

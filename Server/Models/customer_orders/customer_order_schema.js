@@ -12,11 +12,14 @@ const customerOrderSchema = new mongoose.Schema(
     productCost: { type: String, trim: true },
     productImage: { type: String, trim: true },
     customerEmail: { type: String, required: true, trim: true },
+    dealerName: { type: String, trim: true },
+    dealerEmail: { type: String, trim: true },
     orderStatus: {
       type: String,
       enum: [
         "pending",
         "accepted",
+        "assigned_to_dealer",
         "dealer_received",
         "delivered",
         "cancelled",

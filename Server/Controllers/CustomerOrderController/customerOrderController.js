@@ -1,4 +1,6 @@
 const CustomerOrderModel = require("../../Models/customer_orders/customer_order_schema.js");
+const DealerOrderModel = require("../../Models/dealer_orders/dealer_order_schema.js");
+const authSchema = require("../../Models/AuthSchema/authSchema.js");
 const itemsSchema = require("../../Models/farmer_posts/farmer_post_schema.js");
 
 const placeCustomerOrder = async (req, res) => {
@@ -170,6 +172,88 @@ const acceptCustomerOrder = async (req, res) => {
   }
 };
 
+const acceptAndAssignToDealer = async (req, res) => {
+  try {
+    const { orderId } = req.params;
+    const { dealerName, dealerEmail } = req.body;
+
+    if (!orderId) {
+      return res.status(400).json({
+        status: false,
+        message: "order id is required",
+      });
+    }
+
+    if (!dealerName || !dealerEmail) {
+      return res.status(400).json({
+        status: false,
+        message: "dealerName and dealerEmail are required",
+      });
+    }
+
+    const dealer = await authSchema.findOne({
+      name: dealerName.trim(),
+      email: dealerEmail.trim(),
+      role: "dealer",
+    });
+
+    if (!dealer) {
+      return res.status(404).json({
+        status: false,
+        message: "dealer not found",
+      });
+    }
+
+    const order = await CustomerOrderModel.findOne({
+      _id: orderId,
+      farmerName: req.user.name,
+    });
+
+    if (!order) {
+      return res.status(404).json({
+        status: false,
+        message: "order not found",
+      });
+    }
+
+    if (order.orderStatus !== "pending") {
+      return res.status(400).json({
+        status: false,
+        message: `only pending orders can be assigned (current: ${order.orderStatus})`,
+      });
+    }
+
+    order.dealerName = dealer.name;
+    order.dealerEmail = dealer.email;
+    order.orderStatus = "assigned_to_dealer";
+    await order.save();
+
+    await DealerOrderModel.create({
+      customerName: order.customerName,
+      phoneNo: order.phoneNo,
+      homeAddress: order.homeAddress,
+      productName: order.productName,
+      dealerName: dealer.name,
+      dealerEmail: dealer.email,
+      farmerName: req.user.name,
+    });
+
+    return res.status(200).json({
+      status: true,
+      message: "order accepted and assigned to dealer successfully",
+      data: order,
+    });
+  } catch (error) {
+    console.log("acceptAndAssignToDealer_error:", error.message);
+
+    return res.status(500).json({
+      status: false,
+      message: "failed to accept and assign order",
+      error_message: error.message,
+    });
+  }
+};
+
 const markDealerReceived = async (req, res) => {
   try {
     const { orderId } = req.params;
@@ -193,10 +277,14 @@ const markDealerReceived = async (req, res) => {
       });
     }
 
-    if (order.orderStatus !== "accepted") {
+    const canMarkReceived = ["accepted", "assigned_to_dealer"].includes(
+      order.orderStatus,
+    );
+
+    if (!canMarkReceived) {
       return res.status(400).json({
         status: false,
-        message: `order must be accepted before dealer can receive (current: ${order.orderStatus})`,
+        message: `order must be assigned to dealer before marking received (current: ${order.orderStatus})`,
       });
     }
 
@@ -273,6 +361,7 @@ module.exports = {
   getCustomerOrders,
   getFarmerCustomerOrders,
   acceptCustomerOrder,
+  acceptAndAssignToDealer,
   markDealerReceived,
   markDeliveredToCustomer,
 };

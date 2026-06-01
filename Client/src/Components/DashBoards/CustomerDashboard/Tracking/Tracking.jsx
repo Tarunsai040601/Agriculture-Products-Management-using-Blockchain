@@ -12,9 +12,9 @@ const TRACKING_STEPS = [
     description: "Your order was sent to the farmer",
   },
   {
-    key: "accepted",
-    title: "Accepted by farmer",
-    description: "Farmer confirmed and is preparing the product",
+    key: "assigned_to_dealer",
+    title: "Assigned to dealer",
+    description: "Farmer accepted your order and assigned it to a dealer",
   },
   {
     key: "dealer_received",
@@ -31,6 +31,7 @@ const TRACKING_STEPS = [
 const STATUS_LABELS = {
   pending: "Pending",
   accepted: "Accepted",
+  assigned_to_dealer: "Assigned to dealer",
   dealer_received: "At dealer",
   delivered: "Delivered",
   cancelled: "Cancelled",
@@ -39,6 +40,8 @@ const STATUS_LABELS = {
 const STATUS_HINTS = {
   pending: "Waiting for the farmer to accept your order.",
   accepted: "Farmer accepted — product is on the way to the dealer.",
+  assigned_to_dealer:
+    "Farmer assigned your order to a dealer. Delivery will start soon.",
   dealer_received: "Dealer has your order. Delivery to your address is in progress.",
   delivered: "Your order has been delivered. Thank you for shopping!",
 };
@@ -54,8 +57,11 @@ const formatDate = (value) => {
   });
 };
 
-const getStatusIndex = (status) =>
-  TRACKING_STEPS.findIndex((step) => step.key === status);
+const getStatusIndex = (status) => {
+  const normalized =
+    status === "accepted" ? "assigned_to_dealer" : status;
+  return TRACKING_STEPS.findIndex((step) => step.key === normalized);
+};
 
 const getStepClass = (orderStatus, stepIndex) => {
   if (orderStatus === "cancelled") return "";

@@ -8,6 +8,7 @@ const ORDER_API = "http://localhost:8045/api/customer-order";
 const STATUS_LABELS = {
   pending: "Pending",
   accepted: "Accepted by farmer",
+  assigned_to_dealer: "Assigned to dealer",
   dealer_received: "At dealer",
   delivered: "Delivered",
   cancelled: "Cancelled",

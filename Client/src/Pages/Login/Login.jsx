@@ -185,7 +185,7 @@ const Login = () => {
         setSuccess(true);
 
         setTimeout(() => {
-          navigate("/customerDashboard");
+          navigate("/");
         }, 1500);
       }
 

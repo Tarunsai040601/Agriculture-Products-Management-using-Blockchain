@@ -6,6 +6,7 @@ const {
   getCustomerOrders,
   getFarmerCustomerOrders,
   acceptCustomerOrder,
+  acceptAndAssignToDealer,
   markDealerReceived,
   markDeliveredToCustomer,
 } = require("../../Controllers/CustomerOrderController/customerOrderController.js");
@@ -38,6 +39,13 @@ customerOrderRouter.patch(
   authMiddleware,
   roleMiddleware(["farmer"]),
   acceptCustomerOrder,
+);
+
+customerOrderRouter.patch(
+  "/assign-dealer/:orderId",
+  authMiddleware,
+  roleMiddleware(["farmer"]),
+  acceptAndAssignToDealer,
 );
 
 customerOrderRouter.patch(

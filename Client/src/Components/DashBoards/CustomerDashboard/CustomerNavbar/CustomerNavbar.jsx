@@ -96,7 +96,7 @@ const CustomerNavbar = () => {
 
       <div className='customer-nav-links'>
 
-        <Link to="/customerDashboard">
+        <Link to="/">
           Home
         </Link>
 
