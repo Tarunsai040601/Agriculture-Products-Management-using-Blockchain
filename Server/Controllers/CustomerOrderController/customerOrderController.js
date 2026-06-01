@@ -5,6 +5,10 @@ const itemsSchema = require("../../Models/farmer_posts/farmer_post_schema.js");
 const {
   reconcileDealerOrdersForCustomer,
 } = require("../DealerOrderController/dealerOrderController.js");
+const {
+  notifyOrderAcceptance,
+  notifyOrderCompletion,
+} = require("../../Services/whatsappService.js");
 
 const placeCustomerOrder = async (req, res) => {
   try {
@@ -165,6 +169,18 @@ const acceptCustomerOrder = async (req, res) => {
     order.orderStatus = "accepted";
     await order.save();
 
+    // Send WhatsApp notification to customer
+    try {
+      await notifyOrderAcceptance(
+        order.phoneNo,
+        order.customerName,
+        order.productName,
+        order.farmerName
+      );
+    } catch (waError) {
+      console.error("WhatsApp notification failed:", waError.message);
+    }
+
     return res.status(200).json({
       status: true,
       message: "order accepted successfully",
@@ -247,6 +263,18 @@ const acceptAndAssignToDealer = async (req, res) => {
       farmerName: req.user.name,
       customerOrderId: order._id,
     });
+
+    // Send WhatsApp notification to customer
+    try {
+      await notifyOrderAcceptance(
+        order.phoneNo,
+        order.customerName,
+        order.productName,
+        order.farmerName
+      );
+    } catch (waError) {
+      console.error("WhatsApp notification failed:", waError.message);
+    }
 
     return res.status(200).json({
       status: true,
@@ -349,6 +377,17 @@ const markDeliveredToCustomer = async (req, res) => {
 
     order.orderStatus = "delivered";
     await order.save();
+
+    // Send WhatsApp notification to customer when order is delivered
+    try {
+      await notifyOrderCompletion(
+        order.phoneNo,
+        order.customerName,
+        order.productName
+      );
+    } catch (waError) {
+      console.error("WhatsApp notification failed:", waError.message);
+    }
 
     return res.status(200).json({
       status: true,

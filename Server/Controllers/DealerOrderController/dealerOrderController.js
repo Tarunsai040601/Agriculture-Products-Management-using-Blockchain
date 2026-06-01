@@ -1,6 +1,9 @@
 const DealerOrderModel = require("../../Models/dealer_orders/dealer_order_schema.js");
 const CustomerOrderModel = require("../../Models/customer_orders/customer_order_schema.js");
 const itemsSchema = require("../../Models/farmer_posts/farmer_post_schema.js");
+const {
+  notifyOrderCompletion,
+} = require("../../Services/whatsappService.js");
 
 const trim = (value) => (value || "").trim();
 
@@ -299,6 +302,19 @@ const updateDealerOrderStatus = async (req, res) => {
     await order.save();
 
     const syncedCustomerOrder = await syncCustomerOrderStatus(order, orderStatus);
+
+    // Send WhatsApp notification to customer when order is completed
+    if (orderStatus === "completed" && syncedCustomerOrder) {
+      try {
+        await notifyOrderCompletion(
+          order.phoneNo,
+          order.customerName,
+          order.productName
+        );
+      } catch (waError) {
+        console.error("WhatsApp notification failed:", waError.message);
+      }
+    }
 
     return res.status(200).json({
       status: true,
