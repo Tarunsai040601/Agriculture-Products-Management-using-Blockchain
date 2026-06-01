@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import { useCustomerAuth } from "../../../../hooks/useCustomerAuth";
 import "./Tracking.css";
 
 const ORDER_API = "http://localhost:8045/api/customer-order";
@@ -188,7 +189,7 @@ const TrackingCard = ({ order, cancelled = false, style }) => {
 
 const Tracking = () => {
   const navigate = useNavigate();
-  const token = localStorage.getItem("customer_token");
+  const { token, isLoggedIn } = useCustomerAuth();
 
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -197,6 +198,7 @@ const Tracking = () => {
   const fetchOrders = useCallback(async (silent = false) => {
     if (!token) {
       setOrders([]);
+      setFetchError("");
       setLoading(false);
       return;
     }
@@ -227,14 +229,22 @@ const Tracking = () => {
   }, [fetchOrders]);
 
   useEffect(() => {
-    if (!token) return undefined;
+    if (!isLoggedIn) return undefined;
 
     const interval = setInterval(() => {
       fetchOrders(true);
     }, 30000);
 
     return () => clearInterval(interval);
-  }, [token, fetchOrders]);
+  }, [isLoggedIn, fetchOrders]);
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      setOrders([]);
+      setFetchError("");
+      setLoading(false);
+    }
+  }, [isLoggedIn]);
 
   const { activeOrders, cancelledOrders } = useMemo(() => {
     const active = [];
@@ -251,7 +261,7 @@ const Tracking = () => {
     return { activeOrders: active, cancelledOrders: cancelled };
   }, [orders]);
 
-  if (!token && !loading) {
+  if (!isLoggedIn && !loading) {
     return (
       <div className="tracking-page">
         <header className="tracking-hero tracking-fade-down">

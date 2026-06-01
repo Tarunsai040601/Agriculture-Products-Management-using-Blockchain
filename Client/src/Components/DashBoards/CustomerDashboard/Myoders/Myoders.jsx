@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import { useCustomerAuth } from "../../../../hooks/useCustomerAuth";
 import "./Myoders.css";
 
 const ORDER_API = "http://localhost:8045/api/customer-order";
@@ -25,7 +26,7 @@ const formatDate = (value) => {
 
 const Myoders = () => {
   const navigate = useNavigate();
-  const token = localStorage.getItem("customer_token");
+  const { token, isLoggedIn } = useCustomerAuth();
 
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -64,6 +65,15 @@ const Myoders = () => {
     fetchOrders();
   }, [fetchOrders]);
 
+  useEffect(() => {
+    if (!isLoggedIn) {
+      setOrders([]);
+      setFetchError("");
+      setSearchQuery("");
+      setLoading(false);
+    }
+  }, [isLoggedIn]);
+
   const filteredOrders = useMemo(() => {
     const query = searchQuery.trim().toLowerCase();
     if (!query) return orders;
@@ -82,7 +92,7 @@ const Myoders = () => {
     });
   }, [orders, searchQuery]);
 
-  if (!token && !loading) {
+  if (!isLoggedIn && !loading) {
     return (
       <div className="myoders-page">
         <header className="myoders-header">

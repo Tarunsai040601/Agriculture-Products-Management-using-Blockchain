@@ -1,5 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import {
+  notifyCustomerAuthChange,
+  useCustomerAuth,
+} from '../../../../hooks/useCustomerAuth'
 import './CustomerNavbar.css'
 
 const CustomerNavbar = () => {
@@ -7,27 +11,9 @@ const CustomerNavbar = () => {
   const [toggleMenu, setToggleMenu] =
     useState(false)
 
-  const [customerName, setCustomerName] =
-    useState("")
+  const { customerName, isLoggedIn } = useCustomerAuth()
 
   const navigate = useNavigate()
-
-  // ===== CHECK LOGIN =====
-
-  useEffect(() => {
-
-    const customer =
-      localStorage.getItem(
-        "customer_name"
-      )
-
-    if (customer) {
-
-      setCustomerName(customer)
-
-    }
-
-  }, [])
 
   // ===== LOGIN =====
 
@@ -48,7 +34,7 @@ const CustomerNavbar = () => {
       "customer_name"
     )
 
-    setCustomerName("")
+    notifyCustomerAuthChange()
 
     navigate("/")
   }
@@ -60,7 +46,7 @@ const CustomerNavbar = () => {
     path
   ) => {
 
-    if (!customerName) {
+    if (!isLoggedIn) {
 
       e.preventDefault()
 
@@ -119,7 +105,17 @@ const CustomerNavbar = () => {
         >
           My_Orders
         </Link>
-        <Link to="tracking">TrackingMyProduct</Link>
+        <Link
+          to="/tracking"
+          onClick={(e) =>
+            handleProtectedRoute(
+              e,
+              "/tracking"
+            )
+          }
+        >
+          TrackingMyProduct
+        </Link>
 
         <Link to="/reviews">
           Reviews
@@ -132,7 +128,7 @@ const CustomerNavbar = () => {
       <div className='customer-right-section'>
 
         {
-          customerName ? (
+          isLoggedIn ? (
 
             <>
               {/* ===== PROFILE ===== */}
@@ -230,7 +226,7 @@ const CustomerNavbar = () => {
             </Link>
 
             {
-              customerName ? (
+              isLoggedIn ? (
 
                 <>
                   {/* ===== MOBILE PROFILE ===== */}

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
+import { notifyCustomerAuthChange } from "../../hooks/useCustomerAuth";
 
 import "./Login.css";
 
@@ -181,6 +182,8 @@ const Login = () => {
         localStorage.setItem("customer_token", token);
 
         localStorage.setItem("customer_name", decoded.name);
+
+        notifyCustomerAuthChange();
 
         setSuccess(true);
 

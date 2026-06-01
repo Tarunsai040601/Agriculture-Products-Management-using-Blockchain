@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { useCustomerAuth } from "../../../../hooks/useCustomerAuth";
 import "./Items.css";
 
 const FARMER_API = "http://localhost:8045/api/farmer";
@@ -18,8 +19,7 @@ const EMPTY_ORDER = {
 
 const Items = () => {
   const navigate = useNavigate();
-  const token = localStorage.getItem("customer_token");
-  const storedName = localStorage.getItem("customer_name") || "";
+  const { token, customerName: storedName } = useCustomerAuth();
 
   const [products, setProducts] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");

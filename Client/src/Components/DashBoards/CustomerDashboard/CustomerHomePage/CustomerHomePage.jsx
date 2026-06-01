@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useCustomerAuth } from "../../../../hooks/useCustomerAuth";
 import "./CustomerHomePage.css";
 import video from "../../../../assets/videos/video.mp4";
 
@@ -42,7 +43,8 @@ const workflowSteps = [
 
 const CustomerHomePage = () => {
   const [currentHighlight, setCurrentHighlight] = useState(0);
-  const customerName = localStorage.getItem("customer_name") || "Guest";
+  const { customerName, isLoggedIn } = useCustomerAuth();
+  const displayName = isLoggedIn ? customerName : "Guest";
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -63,7 +65,7 @@ const CustomerHomePage = () => {
           <div className="customer-hero__content">
             <span className="customer-hero__badge">Customer Portal</span>
             <h1>
-              Welcome, <span>{customerName}</span>
+              Welcome, <span>{displayName}</span>
             </h1>
             <h2 className="customer-hero__slide-title">
               {highlights[currentHighlight].title}
