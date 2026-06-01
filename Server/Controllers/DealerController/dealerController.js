@@ -159,5 +159,47 @@ try {
   }
 }
 
+// fetch all dealers
+const dealers = async (req, res) => {
+  try {
+
+    const fetch_all_dealers = await authSchema.find(
+      {
+        role: "dealer",
+      },
+      {
+        name: 1,
+        email: 1,
+        role: 1,
+      }
+    );
+
+    console.log(
+      "fetch_all_dealers:",
+      fetch_all_dealers
+    );
+
+    res.status(200).json({
+      status: true,
+      message: "fetch_all_dealers",
+      data: fetch_all_dealers,
+    });
+
+  } catch (error) {
+
+    console.log(
+      "fetch_all_dealers_error:",
+      error.message
+    );
+
+    res.status(500).json({
+      status: false,
+      message: "fetch_all_dealers error",
+      err_message: error.message,
+    });
+
+  }
+};
+
 // module export
-module.exports = {createDealer,fetchDealers,deleteDealer };
+module.exports = {createDealer,fetchDealers,deleteDealer,dealers };

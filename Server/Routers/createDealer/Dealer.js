@@ -3,6 +3,7 @@ const {
   fetchDealers,
   createDealer,
   deleteDealer,
+  dealers,
 } = require("../../Controllers/DealerController/dealerController");
 const authMiddleware = require("../../Middlewares/AuthMiddleWares/authMiddleware");
 const roleMiddleware = require("../../Middlewares/RoleMiddleWares/roleMiddleware");
@@ -31,6 +32,8 @@ dealerRoute.delete(
   roleMiddleware(["admin"]),
   deleteDealer,
 );
+
+dealerRoute.get("/getDealers", dealers);
 
 // modules exports
 module.exports = dealerRoute;
