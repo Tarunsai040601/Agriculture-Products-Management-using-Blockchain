@@ -111,8 +111,68 @@ const getDealerOrders = async (req, res) => {
   }
 };
 
+const updateDealerOrderStatus = async (req, res) => {
+  try {
+    const { orderId } = req.params;
+    const { orderStatus } = req.body;
+
+    const allowedStatuses = ["received", "completed"];
+
+    if (!orderStatus || !allowedStatuses.includes(orderStatus)) {
+      return res.status(400).json({
+        status: false,
+        message: "orderStatus must be received or completed",
+      });
+    }
+
+    const order = await DealerOrderModel.findOne({
+      _id: orderId,
+      dealerEmail: req.user.email,
+    });
+
+    if (!order) {
+      return res.status(404).json({
+        status: false,
+        message: "order not found",
+      });
+    }
+
+    if (orderStatus === "received" && order.orderStatus !== "pending") {
+      return res.status(400).json({
+        status: false,
+        message: "only pending orders can be marked as received",
+      });
+    }
+
+    if (orderStatus === "completed" && order.orderStatus !== "received") {
+      return res.status(400).json({
+        status: false,
+        message: "only received orders can be marked as completed",
+      });
+    }
+
+    order.orderStatus = orderStatus;
+    await order.save();
+
+    return res.status(200).json({
+      status: true,
+      message: `order marked as ${orderStatus}`,
+      data: order,
+    });
+  } catch (error) {
+    console.log("updateDealerOrderStatus_error:", error.message);
+
+    return res.status(500).json({
+      status: false,
+      message: "failed to update order status",
+      error_message: error.message,
+    });
+  }
+};
+
 module.exports = {
   placeDealerOrder,
   getFarmerOrders,
   getDealerOrders,
+  updateDealerOrderStatus,
 };

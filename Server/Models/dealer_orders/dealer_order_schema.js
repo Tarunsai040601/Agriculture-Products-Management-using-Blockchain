@@ -12,7 +12,7 @@ const dealerOrderSchema = new mongoose.Schema(
     farmerName: { type: String, required: true, trim: true },
     orderStatus: {
       type: String,
-      enum: ["pending", "accepted", "delivered", "cancelled"],
+      enum: ["pending", "received", "completed"],
       default: "pending",
     },
   },

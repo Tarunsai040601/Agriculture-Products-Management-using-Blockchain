@@ -5,6 +5,7 @@ const {
   placeDealerOrder,
   getFarmerOrders,
   getDealerOrders,
+  updateDealerOrderStatus,
 } = require("../../Controllers/DealerOrderController/dealerOrderController.js");
 
 const dealerOrderRouter = express.Router();
@@ -28,6 +29,13 @@ dealerOrderRouter.get(
   authMiddleware,
   roleMiddleware(["dealer"]),
   getDealerOrders,
+);
+
+dealerOrderRouter.patch(
+  "/:orderId/status",
+  authMiddleware,
+  roleMiddleware(["dealer"]),
+  updateDealerOrderStatus,
 );
 
 module.exports = dealerOrderRouter;

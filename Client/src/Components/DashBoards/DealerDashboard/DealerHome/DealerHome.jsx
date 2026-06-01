@@ -183,7 +183,7 @@ const DealerHome = () => {
           Open My Jobs to see products assigned by farmers, update status, and
           notify customers when delivery is complete.
         </p>
-        <Link to="/dealerDashboard/myjob" className="dealer-cta__btn">
+        <Link to="myjob" className="dealer-cta__btn">
           Go to My Jobs
         </Link>
       </section>

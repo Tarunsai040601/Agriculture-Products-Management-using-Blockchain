@@ -1,93 +1,77 @@
-import React from 'react'
-import { Route, Routes } from 'react-router-dom'
+import React from "react";
+import { Route, Routes } from "react-router-dom";
 
-import Register from './Pages/Register/Register'
-import Login from './Pages/Login/Login'
+import Register from "./Pages/Register/Register";
+import Login from "./Pages/Login/Login";
 
-import AdminLayout from './Layouts/AdminLayout/AdminLayout'
-import FamerLayout from './Layouts/FarmerLayout/FarmerLayout'
-import CustomerLayout from './Layouts/CustomerLayout/CustomerLayout'
-import DealerLayout from './Layouts/DealerLayout/DealerLayout'
-import AdminHome from './Components/DashBoards/AdminDashboard/AdminHome/AdminHome'
-import CreateFarmer_Dealer from './Components/DashBoards/AdminDashboard/CreateFamer_Dealer/CreateFarmer_Dealer'
-import Show_Farmers from './Components/DashBoards/AdminDashboard/Show_Farmers/Show_Farmers'
-import Show_Dealers from './Components/DashBoards/AdminDashboard/Show_Dealers/Show_Dealers'
-import FarmerHomePage from './Components/DashBoards/FarmerDashboard/FarmerHomePage/FarmerHomePage'
-import UploadItems from './Components/DashBoards/FarmerDashboard/UploadItems/UploadItems'
-import ShowItems from './Components/DashBoards/FarmerDashboard/ShowItems/ShowItems'
-import ShowDealers from './Components/DashBoards/FarmerDashboard/ShowDealers/ShowDealers'
-import DealerHome from './Components/DashBoards/DealerDashboard/DealerHome/DealerHome'
-import MyJob from './Components/DashBoards/DealerDashboard/MyJob/MyJob'
+import AdminLayout from "./Layouts/AdminLayout/AdminLayout";
+import FamerLayout from "./Layouts/FarmerLayout/FarmerLayout";
+import CustomerLayout from "./Layouts/CustomerLayout/CustomerLayout";
+import DealerLayout from "./Layouts/DealerLayout/DealerLayout";
+import AdminHome from "./Components/DashBoards/AdminDashboard/AdminHome/AdminHome";
+import CreateFarmer_Dealer from "./Components/DashBoards/AdminDashboard/CreateFamer_Dealer/CreateFarmer_Dealer";
+import Show_Farmers from "./Components/DashBoards/AdminDashboard/Show_Farmers/Show_Farmers";
+import Show_Dealers from "./Components/DashBoards/AdminDashboard/Show_Dealers/Show_Dealers";
+import FarmerHomePage from "./Components/DashBoards/FarmerDashboard/FarmerHomePage/FarmerHomePage";
+import UploadItems from "./Components/DashBoards/FarmerDashboard/UploadItems/UploadItems";
+import ShowItems from "./Components/DashBoards/FarmerDashboard/ShowItems/ShowItems";
+import ShowDealers from "./Components/DashBoards/FarmerDashboard/ShowDealers/ShowDealers";
+import DealerHome from "./Components/DashBoards/DealerDashboard/DealerHome/DealerHome";
+import MyJob from "./Components/DashBoards/DealerDashboard/Myjob/MyJob";
 
+import CustomerHomePage from "./Components/DashBoards/CustomerDashboard/CustomerHomePage/CustomerHomePage";
 
 const App = () => {
-
   return (
-
     <div>
-
       <Routes>
+        {/* ===== CUSTOMER PAGES ===== */}
 
-        {/* ===== DEFAULT CUSTOMER PAGE ===== */}
-
-        <Route
-          path='/'
-          element={<CustomerLayout />}
-        />
+        <Route path="/" element={<CustomerLayout />}>
+          <Route index element={<CustomerHomePage />} />
+        </Route>
 
         {/* ===== LOGIN PAGE ===== */}
 
-        <Route
-          path='/login'
-          element={<Login />}
-        />
+        <Route path="/login" element={<Login />} />
 
         {/* ===== REGISTER PAGE ===== */}
 
-        <Route
-          path='/register'
-          element={<Register />}
-        />
+        <Route path="/register" element={<Register />} />
 
         {/* ===== ADMIN DASHBOARD ===== */}
 
-        <Route path='/adminDashboard' element={<AdminLayout />}>
-          <Route index element={<AdminHome/>}/>
-          <Route path='createfarmers_Dealer' element={<CreateFarmer_Dealer/>}/>
-          <Route path='showfarmers' element={<Show_Farmers/>}/>
-          <Route path='showdealers' element={<Show_Dealers/>}/>
-          </Route>
-        
+        <Route path="/adminDashboard" element={<AdminLayout />}>
+          <Route index element={<AdminHome />} />
+          <Route
+            path="createfarmers_Dealer"
+            element={<CreateFarmer_Dealer />}
+          />
+          <Route path="showfarmers" element={<Show_Farmers />} />
+          <Route path="showdealers" element={<Show_Dealers />} />
+        </Route>
 
         {/* ===== FARMER DASHBOARD ===== */}
-          <Route path='/farmerDashboard'element={<FamerLayout/>}>
-            <Route index element={<FarmerHomePage/>}/>
-            <Route path='uploaditems' element={<UploadItems/>}/>
-            <Route path='showitems' element={<ShowItems/>}/>
-            <Route path='showdealer' element={<ShowDealers/>}/>
-          </Route>
-          
-        
-    
+        <Route path="/farmerDashboard" element={<FamerLayout />}>
+          <Route index element={<FarmerHomePage />} />
+          <Route path="uploaditems" element={<UploadItems />} />
+          <Route path="showitems" element={<ShowItems />} />
+          <Route path="showdealer" element={<ShowDealers />} />
+        </Route>
 
         {/* ===== DEALER DASHBOARD ===== */}
 
-        <Route path='/dealerDashboard' element={<DealerLayout />}>
+        <Route path="/dealerDashboard" element={<DealerLayout />}>
           <Route index element={<DealerHome />} />
-          <Route path='myjob' element={<MyJob />} />
+          <Route path="myjob" element={<MyJob />} />
         </Route>
 
-        {/* ===== CUSTOMER DASHBOARD ===== */}
-
-        <Route
-          path='/customerDashboard'
-          element={<CustomerLayout />}
-        />
-
+        <Route path="/customerDashboard" element={<CustomerLayout />}>
+          <Route index element={<CustomerHomePage />} />
+        </Route>
       </Routes>
-
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
