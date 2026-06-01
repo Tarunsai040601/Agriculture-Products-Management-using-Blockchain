@@ -39,7 +39,7 @@ const AdminHome = () => {
 
       {/* Statistics */}
 
-      {/* <section className="agri-stats-section">
+      <section className="agri-stats-section">
         <div className="agri-stat-card">
           <h2>5K+</h2>
           <p>Farmers</p>
@@ -59,7 +59,7 @@ const AdminHome = () => {
           <h2>20K+</h2>
           <p>Customers</p>
         </div>
-      </section> */}
+      </section>
 
       {/* Features */}
 

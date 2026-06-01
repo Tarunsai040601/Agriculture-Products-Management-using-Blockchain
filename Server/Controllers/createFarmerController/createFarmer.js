@@ -114,5 +114,55 @@ const createFarmer = async (req, res) => {
   }
 };
 
+// delete farmer
+// delete farmer
+const deleteFarmer = async (req, res) => {
+  try {
+    const { name } = req.query;
+
+    if (!name) {
+      return res.status(400).json({
+        status: false,
+        message: "Farmer name is required",
+      });
+    }
+
+    const farmer = await authSchema.findOne({
+      name,
+      role: "farmer",
+      createdBy: req.user.name,
+    });
+
+    if (!farmer) {
+      return res.status(404).json({
+        status: false,
+        message: `Farmer not found with name: ${name}`,
+      });
+    }
+
+    await authSchema.deleteOne({
+      _id: farmer._id,
+    });
+
+    res.status(200).json({
+      status: true,
+      message: "Farmer deleted successfully",
+      deletedFarmer: {
+        name: farmer.name,
+        email: farmer.email,
+        role: farmer.role,
+      },
+    });
+  } catch (error) {
+    console.log("delete farmer error:", error.message);
+
+    res.status(500).json({
+      status: false,
+      message: "Failed to delete farmer",
+      error_message: error.message,
+    });
+  }
+};
+
 // module export
-module.exports = { createFarmer, fetchFarmers };
+module.exports = { createFarmer, fetchFarmers ,deleteFarmer};

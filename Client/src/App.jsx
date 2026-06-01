@@ -10,6 +10,9 @@ import CustomerLayout from './Layouts/CustomerLayout/CustomerLayout'
 import DealerLayout from './Layouts/DealerLayout/DealerLayout'
 import AdminHome from './Components/DashBoards/AdminDashboard/AdminHome/AdminHome'
 import CreateFarmer_Dealer from './Components/DashBoards/AdminDashboard/CreateFamer_Dealer/CreateFarmer_Dealer'
+import Show_Farmers from './Components/DashBoards/AdminDashboard/Show_Farmers/Show_Farmers'
+import Show_Dealers from './Components/DashBoards/AdminDashboard/Show_Dealers/Show_Dealers'
+
 
 const App = () => {
 
@@ -45,6 +48,9 @@ const App = () => {
         <Route path='/adminDashboard' element={<AdminLayout />}>
           <Route index element={<AdminHome/>}/>
           <Route path='createfarmers_Dealer' element={<CreateFarmer_Dealer/>}/>
+          <Route path='showfarmers' element={<Show_Farmers/>}/>
+          <Route path='showdealers' element={<Show_Dealers/>}/>
+       
           
           </Route>
         

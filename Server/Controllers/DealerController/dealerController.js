@@ -110,5 +110,54 @@ const createDealer = async (req, res) => {
   }
 };
 
+// delete
+const deleteDealer=async(req,res)=>{
+try {
+    const { name } = req.query;
+
+    if (!name) {
+      return res.status(400).json({
+        status: false,
+        message: "Dealer name is required",
+      });
+    }
+
+    const dealer = await authSchema.findOne({
+      name,
+      role: "dealer",
+      createdBy: req.user.name,
+    });
+
+    if (!dealer) {
+      return res.status(404).json({
+        status: false,
+        message: `dealer not found with name: ${name}`,
+      });
+    }
+
+    await authSchema.deleteOne({
+      _id: dealer._id,
+    });
+
+    res.status(200).json({
+      status: true,
+      message: "dealer deleted successfully",
+      deletedFarmer: {
+        name: dealer.name,
+        email: dealer.email,
+        role: dealer.role,
+      },
+    });
+  } catch (error) {
+    console.log("delete dealer error:", error.message);
+
+    res.status(500).json({
+      status: false,
+      message: "Failed to delete dealer",
+      error_message: error.message,
+    });
+  }
+}
+
 // module export
-module.exports = {createDealer,fetchDealers };
+module.exports = {createDealer,fetchDealers,deleteDealer };

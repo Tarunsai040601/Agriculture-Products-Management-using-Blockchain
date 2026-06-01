@@ -2,6 +2,7 @@ const express = require("express");
 const {
   fetchFarmers,
   createFarmer,
+  deleteFarmer,
 } = require("../../Controllers/createFarmerController/createFarmer.js");
 const authMiddleware = require("../../Middlewares/AuthMiddleWares/authMiddleware.js");
 const roleMiddleware = require("../../Middlewares/RoleMiddleWares/roleMiddleware.js");
@@ -21,6 +22,14 @@ FarmerRouter.post(
   authMiddleware,
   roleMiddleware(["admin"]),
   createFarmer,
+);
+
+// delete faramer
+FarmerRouter.delete(
+  "/delete-farmer",
+  authMiddleware,
+  roleMiddleware(["admin"]),
+  deleteFarmer,
 );
 
 // module exports

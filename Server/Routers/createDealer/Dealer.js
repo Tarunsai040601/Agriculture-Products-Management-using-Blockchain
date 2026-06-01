@@ -2,6 +2,7 @@ const express = require("express");
 const {
   fetchDealers,
   createDealer,
+  deleteDealer,
 } = require("../../Controllers/DealerController/dealerController");
 const authMiddleware = require("../../Middlewares/AuthMiddleWares/authMiddleware");
 const roleMiddleware = require("../../Middlewares/RoleMiddleWares/roleMiddleware");
@@ -21,6 +22,14 @@ dealerRoute.post(
   authMiddleware,
   roleMiddleware(["admin"]),
   createDealer,
+);
+
+// delete dealer
+dealerRoute.delete(
+  "/delete-dealer",
+  authMiddleware,
+  roleMiddleware(["admin"]),
+  deleteDealer,
 );
 
 // modules exports

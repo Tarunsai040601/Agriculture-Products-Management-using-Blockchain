@@ -31,13 +31,13 @@ const Admin_Navbar = () => {
       <div className="admin-nav-links">
         <Link to="/adminDashboard">Home</Link>
 
-        <Link to="createfarmers_Dealer">CreateFarmers</Link>
+        <Link to="createfarmers_Dealer">Create_Member</Link>
 
-        <Link to="/createdealers">CreateDealers</Link>
+        {/* <Link to="/createdealers">CreateDealers</Link> */}
 
-        <Link to="/showfarmers">ShowFarmers</Link>
+        <Link to="showfarmers">ShowFarmers</Link>
 
-        <Link to="/showdealers">ShowDealers</Link>
+        <Link to="showdealers">ShowDealers</Link>
       </div>
 
       {/* ===== Desktop Right Section ===== */}
@@ -76,13 +76,11 @@ const Admin_Navbar = () => {
         <div className="admin-mobile-menu">
           <Link to="/home">Home</Link>
 
-          <Link to="/createfarmers">CreateFarmers</Link>
+          <Link to="createfarmers_Dealer">CreateFarmers</Link>
 
-          <Link to="/createdealers">CreateDealers</Link>
+          <Link to="showfarmers">ShowFarmers</Link>
 
-          <Link to="/showfarmers">ShowFarmers</Link>
-
-          <Link to="/showdealers">ShowDealers</Link>
+          <Link to="showdealers">ShowDealers</Link>
 
           {/* ===== MOBILE PROFILE ===== */}
 
