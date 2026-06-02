@@ -18,7 +18,7 @@ import ShowItems from "./Components/DashBoards/FarmerDashboard/ShowItems/ShowIte
 import ShowDealers from "./Components/DashBoards/FarmerDashboard/ShowDealers/ShowDealers";
 import Orders from "./Components/DashBoards/FarmerDashboard/Orders/Orders";
 import DealerHome from "./Components/DashBoards/DealerDashboard/DealerHome/DealerHome";
-import MyJob from "./Components/DashBoards/DealerDashboard/Myjob/MyJob";
+import MyJob from "./Components/DashBoards/DealerDashboard/MyJob/MyJob";
 
 import CustomerHomePage from "./Components/DashBoards/CustomerDashboard/CustomerHomePage/CustomerHomePage";
 import About from "./Components/DashBoards/CustomerDashboard/About/About";
