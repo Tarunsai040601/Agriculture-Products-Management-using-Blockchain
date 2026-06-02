@@ -221,6 +221,18 @@ const CustomerNavbar = () => {
               My_Orders
             </Link>
 
+            <Link
+              to="/tracking"
+              onClick={(e) =>
+                handleProtectedRoute(
+                  e,
+                  "/tracking"
+                )
+              }
+            >
+              TrackingMyProduct
+            </Link>
+
             <Link to="/reviews">
               Reviews
             </Link>
