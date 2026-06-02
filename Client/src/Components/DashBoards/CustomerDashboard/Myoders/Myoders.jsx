@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useCustomerAuth } from "../../../../hooks/useCustomerAuth";
 import "./Myoders.css";
 
-const ORDER_API = "http://localhost:8045/api/customer-order";
+const ORDER_API = "https://agriculture-products-management-using-7laj.onrender.com/api/customer-order";
 
 const STATUS_LABELS = {
   pending: "Pending",

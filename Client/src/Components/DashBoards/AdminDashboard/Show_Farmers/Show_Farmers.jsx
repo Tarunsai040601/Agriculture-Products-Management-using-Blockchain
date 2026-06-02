@@ -26,7 +26,7 @@ const Show_Farmers = () => {
       }
 
       const response = await axios.get(
-        "http://localhost:8045/api/create/get-Farmer",
+        "https://agriculture-products-management-using-7laj.onrender.com/api/create/get-Farmer",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -78,7 +78,7 @@ const Show_Farmers = () => {
 
     try {
       const response = await axios.delete(
-        `http://localhost:8045/api/create/delete-farmer?name=${name}`,
+        `https://agriculture-products-management-using-7laj.onrender.com/api/create/delete-farmer?name=${name}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

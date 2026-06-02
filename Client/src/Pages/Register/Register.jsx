@@ -74,7 +74,7 @@ const Register = () => {
     setLoading(true);
     setApiError("");
     try {
-      const response = await fetch("http://localhost:8045/api/auth/register", {
+      const response = await fetch("https://agriculture-products-management-using-7laj.onrender.com/api/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

@@ -5,8 +5,8 @@ import Swal from "sweetalert2";
 import { useCustomerAuth } from "../../../../hooks/useCustomerAuth";
 import "./Items.css";
 
-const FARMER_API = "http://localhost:8045/api/farmer";
-const ORDER_API = "http://localhost:8045/api/customer-order";
+const FARMER_API = "https://agriculture-products-management-using-7laj.onrender.com/api/farmer";
+const ORDER_API = "https://agriculture-products-management-using-7laj.onrender.com/api/customer-order";
 
 const EMPTY_ORDER = {
   productName: "",

@@ -23,7 +23,7 @@ const Show_Dealers = () => {
       }
 
       const response = await axios.get(
-        "http://localhost:8045/api/dealer/get-dealer",
+        "https://agriculture-products-management-using-7laj.onrender.com/api/dealer/get-dealer",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -82,7 +82,7 @@ const Show_Dealers = () => {
 
     try {
       await axios.delete(
-        `http://localhost:8045/api/dealer/delete-dealer?name=${name}`,
+        `https://agriculture-products-management-using-7laj.onrender.com/api/dealer/delete-dealer?name=${name}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import "./Uploaditems.css";
 import Swal from "sweetalert2";
 
-const API_BASE = "http://localhost:8045/api/farmer";
+const API_BASE = "https://agriculture-products-management-using-7laj.onrender.com/api/farmer";
 
 const UploadItems = () => {
   const location = useLocation();

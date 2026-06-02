@@ -4,8 +4,8 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import "./Orders.css";
 
-const ORDER_API = "http://localhost:8045/api/customer-order";
-const DEALER_API = "http://localhost:8045/api/dealer/getDealers";
+const ORDER_API = "https://agriculture-products-management-using-7laj.onrender.com/api/customer-order";
+const DEALER_API = "https://agriculture-products-management-using-7laj.onrender.com/api/dealer/getDealers";
 
 const STATUS_LABELS = {
   pending: "Pending",

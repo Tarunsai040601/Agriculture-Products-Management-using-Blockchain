@@ -55,8 +55,8 @@ const CreateFarmer_Dealer = () => {
 
       const apiUrl =
         formData.role === "farmer"
-          ? "http://localhost:8045/api/create/create-farmer"
-          : "http://localhost:8045/api/dealer/post-dealer";
+          ? "https://agriculture-products-management-using-7laj.onrender.com/api/create/create-farmer"
+          : "https://agriculture-products-management-using-7laj.onrender.com/api/dealer/post-dealer";
 
       await axios.post(apiUrl, formData, {
         headers: {

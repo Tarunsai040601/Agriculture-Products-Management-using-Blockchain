@@ -10,9 +10,9 @@ import dealerImg4 from "../../../../assets/dealers/dealer4.png";
 import dealerImg5 from "../../../../assets/dealers/dealer5.png";
 import dealerImg6 from "../../../../assets/dealers/dealer6.png";
 
-const DEALER_API = "http://localhost:8045/api/dealer/getDealers";
-const FARMER_API = "http://localhost:8045/api/farmer";
-const ORDER_API = "http://localhost:8045/api/dealer-order";
+const DEALER_API = "https://agriculture-products-management-using-7laj.onrender.com/api/dealer/getDealers";
+const FARMER_API = "https://agriculture-products-management-using-7laj.onrender.com/api/farmer";
+const ORDER_API = "https://agriculture-products-management-using-7laj.onrender.com/api/dealer-order";
 
 const DEALER_AVATARS = [
   dealerImg1,

@@ -3,7 +3,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import "./MyJob.css";
 
-const ORDER_API = "http://localhost:8045/api/dealer-order";
+const ORDER_API = "https://agriculture-products-management-using-7laj.onrender.com/api/dealer-order";
 
 const TABS = [
   { id: "pending", label: "Assigned" },
