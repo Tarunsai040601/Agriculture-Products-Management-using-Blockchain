@@ -18,7 +18,7 @@ const FarmerNavbar = () => {
     localStorage.removeItem("farmer_token")
     localStorage.removeItem("farmer_name")
 
-    navigate("/")
+    navigate("/login")
   }
 
   return (

@@ -26,7 +26,7 @@ const DealerNavbar = () => {
       "dealer_name"
     )
 
-    navigate("/")
+    navigate("/login")
   }
 
   return (
