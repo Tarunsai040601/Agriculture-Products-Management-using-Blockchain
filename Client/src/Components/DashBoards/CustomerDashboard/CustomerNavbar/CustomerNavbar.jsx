@@ -197,7 +197,7 @@ const CustomerNavbar = () => {
 
           <div className='customer-mobile-menu'>
 
-            <Link to="/customerDashboard">
+            <Link to="/">
               Home
             </Link>
 
