@@ -148,3 +148,10 @@ Delete Product
 View Products
 
 Step 6: All data is stored and retrieved from MongoDB through REST APIs built with Node.js and Express.js.
+
+# RegisterPage
+<img width="1918" height="864" alt="Screenshot 2026-06-16 103120" src="https://github.com/user-attachments/assets/ec2b79d2-70dc-44c3-93a1-61f736386097" />
+
+# LoginPage
+
+
