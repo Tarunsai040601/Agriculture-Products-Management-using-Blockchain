@@ -169,6 +169,28 @@ Step 6: All data is stored and retrieved from MongoDB through REST APIs built wi
 # ShowDealers
 <img width="1898" height="869" alt="Screenshot 2026-06-16 104445" src="https://github.com/user-attachments/assets/8ea17a32-c4b3-4cd2-81b4-57dbc8dacb8e" />
 
+# FarmerDashBoard
+
+# FarmerHomePage
+<img width="1896" height="862" alt="Screenshot 2026-06-16 104644" src="https://github.com/user-attachments/assets/ce7469b1-c424-422b-8d60-ed9a4c2183c9" />
+
+# FarmerUploadProducts
+<img width="1899" height="876" alt="Screenshot 2026-06-16 104805" src="https://github.com/user-attachments/assets/6c2ad951-9ff7-48b3-ac86-e3264bff0d1a" />
+
+# Show all Products
+<img width="1899" height="776" alt="Screenshot 2026-06-16 104857" src="https://github.com/user-attachments/assets/cf91b252-ebb1-4791-aff9-a082c93c08bd" />
+
+# Orders Recevied
+<img width="1911" height="869" alt="Screenshot 2026-06-16 104934" src="https://github.com/user-attachments/assets/97fa788e-f518-49b2-9ae3-792aa35858c6" />
+
+# ShowDealers
+<img width="1898" height="871" alt="Screenshot 2026-06-16 105052" src="https://github.com/user-attachments/assets/3cfdd4e1-a60b-449a-b3df-a95c63245bde" />
+
+
+
+
+
+
 
 
 
