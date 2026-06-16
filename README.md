@@ -111,3 +111,18 @@ Allow administrators to manage products efficiently.
 Store and retrieve data using a database.
 
 Build a scalable full-stack application using modern web technologies.
+
+# Technology Stack
+
+| Layer           | Technology                                 |
+| --------------- | ------------------------------------------ |
+| Frontend        | HTML, CSS, JavaScript, React.js, Bootstrap |
+
+| Backend         | Node.js, Express.js                        |
+
+| Database        | MongoDB                                    |
+
+| API Testing     | Postman                                    |
+
+| Version Control | Git & GitHub                               |
+
