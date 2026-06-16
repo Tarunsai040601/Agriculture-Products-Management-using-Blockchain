@@ -117,12 +117,8 @@ Build a scalable full-stack application using modern web technologies.
 | Layer           | Technology                                 |
 | --------------- | ------------------------------------------ |
 | Frontend        | HTML, CSS, JavaScript, React.js, Bootstrap |
-
 | Backend         | Node.js, Express.js                        |
-
 | Database        | MongoDB                                    |
-
 | API Testing     | Postman                                    |
-
 | Version Control | Git & GitHub                               |
 
