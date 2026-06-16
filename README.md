@@ -122,3 +122,29 @@ Build a scalable full-stack application using modern web technologies.
 | API Testing     | Postman                                    |
 | Version Control | Git & GitHub                               |
 
+
+# Working Flow
+
+Step 1: User opens the application.
+
+Step 2: User registers or logs in.
+
+Step 3: After successful authentication:
+
+User can view all products.
+
+User can search products.
+
+User can view product details.
+
+Step 4: Admin logs in.
+
+Step 5: Admin performs:
+
+Update Product
+
+Delete Product
+
+View Products
+
+Step 6: All data is stored and retrieved from MongoDB through REST APIs built with Node.js and Express.js.
