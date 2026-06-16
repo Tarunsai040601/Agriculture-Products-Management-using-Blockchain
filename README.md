@@ -10,3 +10,104 @@ I implemented a responsive and user-friendly interface using HTML, CSS, JavaScri
 # SourceCode : https://github.com/Tarunsai040601/Agriculture-Products-Management-using-Blockchain
 
 # LiveProject : https://agriculture-products-management-usi.vercel.app/
+
+# Flow Diagram:
+                    +----------------+
+                    |     User       |
+                    +----------------+
+                             |
+                             v
+                  +-------------------+
+                  | Login / Register  |
+                  +-------------------+
+                             |
+                     Authentication
+                             |
+               +-------------+-------------+
+               |                           |
+               v                           v
+      +----------------+         +----------------+
+      | User Dashboard |         | Admin Dashboard|
+      +----------------+         +----------------+
+               |                           |
+      ------------------         -----------------------
+      |        |       |         |        |            |
+      v        v       v         v        v            v
+ View     Search    Product   Add     Update      Delete
+Products Products   Details Product   Product     Product
+      |        |       |         |        |            |
+      -----------------------------------------------
+                             |
+                             v
+                    +----------------+
+                    |    MongoDB     |
+                    +----------------+
+
+# Project Architecture (Skeleton Structure)
+
+Agriculture-Products-Management
+│
+├── client/                 (Frontend - React)
+│   │
+│   ├── public/
+│   │
+│   └── src/
+│       │
+│       ├── components/
+│       │   ├── Navbar.jsx
+│       │   ├── Footer.jsx
+│       │   ├── ProductCard.jsx
+│       │   └── SearchBar.jsx
+│       │
+│       ├── pages/
+│       │   ├── Home.jsx
+│       │   ├── Login.jsx
+│       │   ├── Register.jsx
+│       │   ├── Products.jsx
+│       │   ├── ProductDetails.jsx
+│       │   └── AdminDashboard.jsx
+│       │
+│       ├── services/
+│       │   └── api.js
+│       │
+│       ├── App.jsx
+│       └── main.jsx
+│
+├── server/                 (Backend - Node.js)
+│   │
+│   ├── config/
+│   │   └── db.js
+│   │
+│   ├── models/
+│   │   ├── User.js
+│   │   └── Product.js
+│   │
+│   ├── controllers/
+│   │   ├── userController.js
+│   │   └── productController.js
+│   │
+│   ├── routes/
+│   │   ├── userRoutes.js
+│   │   └── productRoutes.js
+│   │
+│   ├── middleware/
+│   │   └── authMiddleware.js
+│   │
+│   ├── app.js
+│   └── server.js
+│
+├── package.json
+│
+└── README.md
+
+# Key Goals
+
+Provide a user-friendly interface for viewing agricultural products.
+
+Enable secure user authentication.
+
+Allow administrators to manage products efficiently.
+
+Store and retrieve data using a database.
+
+Build a scalable full-stack application using modern web technologies.
