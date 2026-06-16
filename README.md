@@ -186,6 +186,57 @@ Step 6: All data is stored and retrieved from MongoDB through REST APIs built wi
 # ShowDealers
 <img width="1898" height="871" alt="Screenshot 2026-06-16 105052" src="https://github.com/user-attachments/assets/3cfdd4e1-a60b-449a-b3df-a95c63245bde" />
 
+# DealersDashBoard
+
+# DealerHomePage
+<img width="1905" height="889" alt="Screenshot 2026-06-16 105312" src="https://github.com/user-attachments/assets/27da90d4-6f76-47c3-8301-16b0d7e585d1" />
+
+# ShowMyOrders
+<img width="1894" height="867" alt="Screenshot 2026-06-16 105400" src="https://github.com/user-attachments/assets/7af40c1b-c0e1-43c5-b592-68a281023aec" />
+
+#  CustomerDashBoard
+
+# CustomerHomePage
+<img width="1896" height="867" alt="Screenshot 2026-06-16 105509" src="https://github.com/user-attachments/assets/30a6afdc-f8fc-43ca-91d7-f8b12127ef99" />
+
+# AboutUs
+<img width="1890" height="865" alt="Screenshot 2026-06-16 105547" src="https://github.com/user-attachments/assets/6ad3d975-5301-488e-8427-49c4d9e863b2" />
+
+<img width="1898" height="880" alt="Screenshot 2026-06-16 105620" src="https://github.com/user-attachments/assets/38c7580e-32c0-4f84-8d1f-a44f30de27d0" />
+
+<img width="1903" height="847" alt="Screenshot 2026-06-16 105652" src="https://github.com/user-attachments/assets/69ba0615-8ddb-4e80-b75a-d93a733f6962" />
+
+<img width="1899" height="630" alt="Screenshot 2026-06-16 105720" src="https://github.com/user-attachments/assets/91528f95-5c3f-4c2d-b9ed-2c78b1d96a3f" />
+
+<img width="1901" height="845" alt="Screenshot 2026-06-16 105748" src="https://github.com/user-attachments/assets/a75880a1-3ecf-4a23-b4f0-b67c74b4c1e4" />
+
+# Products
+<img width="1895" height="763" alt="Screenshot 2026-06-16 105843" src="https://github.com/user-attachments/assets/5090d6cf-5a4c-44c2-86e0-b89e2dacc792" />
+<img width="1891" height="639" alt="Screenshot 2026-06-16 105910" src="https://github.com/user-attachments/assets/ea17209c-5d95-4fb7-a8a9-0f29e70b3c5a" />
+<img width="1854" height="724" alt="Screenshot 2026-06-16 105937" src="https://github.com/user-attachments/assets/28664bdc-56bd-42a3-a1b2-748a395ca062" />
+
+# MyOrders
+<img width="1903" height="871" alt="Screenshot 2026-06-16 110034" src="https://github.com/user-attachments/assets/9eec90bf-9f96-4e9a-b6b8-049a28fcb0a4" />
+
+# Tracking My Order
+<img width="1902" height="881" alt="Screenshot 2026-06-16 110104" src="https://github.com/user-attachments/assets/a881fa79-3625-4a2f-9de0-dc7deb7314c4" />
+<img width="1900" height="743" alt="Screenshot 2026-06-16 110142" src="https://github.com/user-attachments/assets/70c25a0c-499b-4011-a3d5-955cb0a93132" />
+
+# Reviews Page
+<img width="1895" height="874" alt="Screenshot 2026-06-16 110212" src="https://github.com/user-attachments/assets/7155d93d-e30c-438b-8629-511b06062004" />
+
+# Responsiveness 
+<img width="1793" height="821" alt="Screenshot 2026-06-16 110329" src="https://github.com/user-attachments/assets/8f396c3e-6ea8-4a18-92a9-6006ce64bb2e" />
+
+
+
+
+
+
+
+
+
+
 
 
 
